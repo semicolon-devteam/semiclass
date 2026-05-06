@@ -95,6 +95,7 @@ npm run dev
 - 시간 절약이 필요하면 미리 만든 산출물을 붙여 넣고 “이 파일을 기준으로 구현한다”고 설명합니다.
 - 산출물 섹션 제목은 바꾸지 않습니다. 이후 Code 프롬프트가 고정 섹션을 참조하기 때문입니다.
 - 프로토타입 프롬프트에는 반드시 `service-spec.md`를 함께 넣습니다.
+- Claude Design 핸드오프 URL을 Code로 이식할 때는 `.semiclass/prompts/01-design-handoff.md`를 사용합니다. URL만 붙이면 데모 단계 제약을 잃을 수 있으므로, 슬라이드 12 상태와 의도적으로 남길 시련을 함께 명시합니다.
 
 ## 2. Claude Code 시작 메시지
 
@@ -147,6 +148,36 @@ npm run snapshot -- vibecoding-00-hello-localhost
 
 ```bash
 npm run snapshot -- vibecoding-01-artifacts-ready
+```
+
+### 0-2 Claude Design 핸드오프 이식
+
+붙일 프롬프트: `.semiclass/prompts/01-design-handoff.md`
+
+의도:
+- Claude Design 핸드오프 URL을 가져와 첫 화면 디자인을 이식한다.
+- 슬라이드 12 상태처럼 디자인 룬 직후의 화면 기준을 만든다.
+- 데이터 분리, Supabase, API, Auth, Tailwind 전면 전환, FCM은 이후 시련으로 남긴다.
+
+예시:
+
+```text
+Fetch this design file, read its readme, and implement the relevant aspects of the design.
+https://api.anthropic.com/v1/design/h/<id>?open_file=<file>
+
+Implement: <file>
+```
+
+확인:
+
+```bash
+npm run dev
+```
+
+스냅샷:
+
+```bash
+npm run snapshot -- vibecoding-02-design-handoff
 ```
 
 ### 1 첫 앱 생성

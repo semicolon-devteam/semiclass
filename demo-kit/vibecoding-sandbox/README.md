@@ -15,8 +15,9 @@ Claude Code Desktop 시연용 샌드박스 레포입니다.
 5. Claude Desktop의 `Code` 탭에서 이 폴더를 엽니다.
 6. `.semiclass/global-demo-context.md` 전체를 첫 메시지로 붙입니다.
 7. `.semiclass/prompts/00-hello-localhost.md`로 localhost 첫 화면을 띄웁니다.
-8. `.semiclass/prompts/02-first-app.md`부터 구현 단계로 들어갑니다.
-9. 각 단계가 끝나면 `npm run snapshot -- <name>`으로 복구 지점을 만듭니다.
+8. Claude Design 핸드오프 URL이 있으면 `.semiclass/prompts/01-design-handoff.md`로 슬라이드 12 상태를 세팅합니다.
+9. `.semiclass/prompts/02-first-app.md`부터 구현 단계로 들어갑니다.
+10. 각 단계가 끝나면 `npm run snapshot -- <name>`으로 복구 지점을 만듭니다.
 
 ## 권장 스냅샷 이름
 
@@ -25,6 +26,7 @@ Claude Code Desktop 시연용 샌드박스 레포입니다.
 - `vibecoding-01-artifacts-ready`
 - `vibecoding-02-design-system`
 - `vibecoding-02-prototype-spec`
+- `vibecoding-02-design-handoff`
 - `vibecoding-03-static-board`
 - `vibecoding-04-data-crystal`
 - `vibecoding-05-supabase-save`

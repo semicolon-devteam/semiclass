@@ -92,6 +92,7 @@ snapshots/<demo-id>-00-hello-localhost
 snapshots/<demo-id>-01-service-spec
 snapshots/<demo-id>-02-design-system
 snapshots/<demo-id>-02-prototype-spec
+snapshots/<demo-id>-02-design-handoff
 ```
 
 예:
