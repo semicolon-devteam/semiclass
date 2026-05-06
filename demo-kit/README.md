@@ -19,6 +19,7 @@ demo-kit/<demo-id>/
   .semiclass/
     global-demo-context.md
     prompts/
+      00-hello-localhost.md
       00-*.md
       01-*.md
   scripts/
@@ -79,6 +80,7 @@ tag 이름은 repo 전체에서 충돌하지 않게 `<demo-id>`를 포함합니�
 
 ```text
 snapshots/<demo-id>-00-empty-starter
+snapshots/<demo-id>-00-hello-localhost
 snapshots/<demo-id>-01-service-spec
 snapshots/<demo-id>-02-design-rules
 ```

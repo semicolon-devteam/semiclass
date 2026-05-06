@@ -10,12 +10,14 @@ Claude Code Desktop 시연용 샌드박스 레포입니다.
 
 1. Claude Desktop의 `Code` 탭에서 이 폴더를 엽니다.
 2. `.semiclass/global-demo-context.md` 전체를 첫 메시지로 붙입니다.
-3. `.semiclass/prompts/00-spec.md`부터 단계별로 붙입니다.
-4. 각 단계가 끝나면 `npm run snapshot -- <name>`으로 복구 지점을 만듭니다.
+3. `.semiclass/prompts/00-hello-localhost.md`로 localhost 첫 화면을 띄웁니다.
+4. `.semiclass/prompts/00-spec.md`부터 단계별로 붙입니다.
+5. 각 단계가 끝나면 `npm run snapshot -- <name>`으로 복구 지점을 만듭니다.
 
 ## 권장 스냅샷 이름
 
 - `00-empty-starter`
+- `00-hello-localhost`
 - `01-service-spec`
 - `02-design-rules`
 - `03-static-board`

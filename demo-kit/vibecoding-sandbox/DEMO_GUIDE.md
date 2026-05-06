@@ -28,6 +28,29 @@ Claude Code 첫 메시지에는 `.semiclass/global-demo-context.md` 전체를 �
 
 ## 2. 단계별 시연 체크
 
+### 0-0 localhost 첫 화면
+
+붙일 프롬프트: `.semiclass/prompts/00-hello-localhost.md`
+
+의도:
+- 학생들이 가장 궁금해할 “내 컴퓨터에서 웹사이트가 뜨는 순간”을 먼저 보여준다.
+- Claude Code가 `app/page.tsx`를 수정하고, `npm run dev`로 `localhost:3000`에 화면을 띄우는 흐름을 보여준다.
+- 아직 기획, 디자인, 데이터, DB는 시작하지 않는다.
+
+확인:
+
+```bash
+npm run dev
+```
+
+브라우저 또는 Claude Code preview에서 `http://localhost:3000`을 열고 `"우리동네 공공데이터 생활정보 보드"` 문구가 보이는지 확인합니다.
+
+스냅샷:
+
+```bash
+npm run snapshot -- vibecoding-00-hello-localhost
+```
+
 ### 0-1 기획의 나침반
 
 붙일 프롬프트: `.semiclass/prompts/00-spec.md`
