@@ -21,6 +21,7 @@ demo-kit/<demo-id>/
     tool-prompts/
       01-*.md
       02-*.md
+      03-*.md
     artifacts/
       README.md
     prompts/
@@ -89,7 +90,8 @@ tag 이름은 repo 전체에서 충돌하지 않게 `<demo-id>`를 포함합니�
 snapshots/<demo-id>-00-empty-starter
 snapshots/<demo-id>-00-hello-localhost
 snapshots/<demo-id>-01-service-spec
-snapshots/<demo-id>-02-design-rules
+snapshots/<demo-id>-02-design-system
+snapshots/<demo-id>-02-prototype-spec
 ```
 
 예:

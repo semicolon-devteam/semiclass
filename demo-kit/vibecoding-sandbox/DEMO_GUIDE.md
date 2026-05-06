@@ -42,30 +42,59 @@ npm run dev
 .semiclass/artifacts/service-spec.md
 ```
 
-### 1-2 디자인 룬: Claude Design
+### 1-2 디자인 룬 A: 디자인 시스템
 
 사용 도구: `https://claude.ai/design`
 
 붙일 프롬프트:
 
 ```text
-.semiclass/tool-prompts/02-claude-design-rules.md
+.semiclass/tool-prompts/02-claude-design-system.md
 ```
 
 의도된 산출물:
-- `design-rules.md`
-- 톤, 색상 토큰, 타이포, 레이아웃, 컴포넌트 규칙, 첫 화면 와이어프레임, 모바일 규칙이 정리된다.
-- Claude Code가 `app/page.tsx`와 CSS를 만들 때 바로 참고할 구현 지시문이 생긴다.
+- `design-system.md`
+- 디자인 원칙, 색상 토큰, 타이포 토큰, 간격/라운드 토큰, 버튼/입력/카드/상세 패널 규칙이 정리된다.
+- 아직 화면을 만들기보다 “어떤 규칙으로 화면을 만들지”가 정리된다.
 
 저장 위치:
 
 ```text
-.semiclass/artifacts/design-rules.md
+.semiclass/artifacts/design-system.md
+```
+
+### 1-3 디자인 룬 B: 첫 화면 프로토타입
+
+사용 도구: `https://claude.ai/design`
+
+입력:
+
+```text
+.semiclass/artifacts/service-spec.md
+.semiclass/artifacts/design-system.md
+```
+
+붙일 프롬프트:
+
+```text
+.semiclass/tool-prompts/03-claude-design-prototype.md
+```
+
+의도된 산출물:
+- `prototype-spec.md`
+- `service-spec.md`의 사용자, 핵심 기능, 데이터 구조가 첫 화면 와이어프레임으로 바뀐다.
+- Claude Code가 `app/page.tsx`와 CSS를 구현할 때 참고할 화면 구조와 컴포넌트 목록이 생긴다.
+
+저장 위치:
+
+```text
+.semiclass/artifacts/prototype-spec.md
 ```
 
 리허설 팁:
 - 시간 절약이 필요하면 미리 만든 산출물을 붙여 넣고 “이 파일을 기준으로 구현한다”고 설명합니다.
 - 산출물 섹션 제목은 바꾸지 않습니다. 이후 Code 프롬프트가 고정 섹션을 참조하기 때문입니다.
+- 프로토타입 프롬프트에는 반드시 `service-spec.md`를 함께 넣습니다.
 
 ## 2. Claude Code 시작 메시지
 
@@ -106,7 +135,7 @@ npm run snapshot -- vibecoding-00-hello-localhost
 붙일 프롬프트: 직접 입력
 
 ```text
-.semiclass/artifacts/service-spec.md와 .semiclass/artifacts/design-rules.md를 읽고, 오늘 구현할 범위와 첫 화면 구현 기준을 짧게 요약해줘.
+.semiclass/artifacts/service-spec.md, .semiclass/artifacts/design-system.md, .semiclass/artifacts/prototype-spec.md를 읽고, 오늘 구현할 범위와 첫 화면 구현 기준을 짧게 요약해줘.
 ```
 
 의도된 결과:

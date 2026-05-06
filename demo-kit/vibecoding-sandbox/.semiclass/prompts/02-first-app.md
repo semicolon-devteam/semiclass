@@ -1,7 +1,7 @@
 # 프롬프트 1: 첫 앱 생성
 
 ```text
-service-spec.md와 design-rules.md를 바탕으로 Next.js 우리동네 공공데이터 생활정보 보드를 만들어줘.
+service-spec.md, design-system.md, prototype-spec.md를 바탕으로 Next.js 우리동네 공공데이터 생활정보 보드를 만들어줘.
 
 요구사항:
 - 생활정보 카드 목록

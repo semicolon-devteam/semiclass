@@ -19,9 +19,10 @@
 ## 단계별 연출 규칙
 
 - Manyfast 기획 산출물이 주어지면 `.semiclass/artifacts/service-spec.md`의 고정 섹션을 기준으로 구현 범위를 해석한다.
-- Claude Design 산출물이 주어지면 `.semiclass/artifacts/design-rules.md`의 디자인 토큰, 컴포넌트 규칙, 구현 지시문을 우선 참고한다.
+- Claude Design 산출물이 주어지면 `.semiclass/artifacts/design-system.md`와 `.semiclass/artifacts/prototype-spec.md`의 디자인 토큰, 컴포넌트 규칙, 화면 구조, 구현 지시문을 우선 참고한다.
 - 기획 프롬프트가 들어오면 질문과 `service-spec.md`를 만든다.
-- 디자인 프롬프트가 들어오면 디자인 기준, 컴포넌트 규칙, 수정 지시문을 만든다.
+- 디자인 시스템 프롬프트가 들어오면 디자인 기준과 컴포넌트 규칙을 만든다.
+- 프로토타입 프롬프트가 들어오면 `service-spec.md`를 입력으로 첫 화면 구조와 구현 지시문을 만든다.
 - 첫 앱 생성 프롬프트가 들어오면 정적 Next.js 화면과 코드 안 샘플 배열, 브라우저 상태 저장까지만 구현한다. DB, 외부 API, Auth, 배포, Tailwind 전면 전환, FCM은 이후 시련을 위해 남긴다.
 - 데이터 크리스탈 프롬프트가 들어오면 샘플 배열을 `public/sample-public-data.json`과 `fetchPublicItems()`로 분리한다. 실제 API 호출은 신호의 검 단계까지 남긴다.
 - DB 코어 프롬프트가 들어오면 Supabase 저장과 새로고침 후 복원을 붙인다. 사용자별 권한 분리는 신원 인장 단계까지 남긴다.
