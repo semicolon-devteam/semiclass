@@ -5,7 +5,7 @@
 Claude Desktop에서 `Code` 탭을 열고 이 폴더를 선택합니다.
 
 ```text
-/Users/reus/Desktop/Sources/semicolon/projects/semiclass/demos/vibecoding-sandbox
+semiclass/demo-kit/vibecoding-sandbox
 ```
 
 터미널에서 한 번만 설치합니다.
@@ -17,7 +17,57 @@ npm run dev
 
 브라우저 또는 Claude Code preview에서 `http://localhost:3000`을 엽니다.
 
-## 1. 시작 메시지
+## 1. 기획/디자인 툴 산출물 만들기
+
+첫 시작은 Code가 아니라 기획/디자인 툴입니다. 수강생에게 “코딩 전에 기준을 먼저 만든다”는 흐름을 보여줍니다.
+
+### 1-1 기획의 나침반: Manyfast
+
+사용 도구: `https://manyfast.io/`
+
+붙일 프롬프트:
+
+```text
+.semiclass/tool-prompts/01-manyfast-service-spec.md
+```
+
+의도된 산출물:
+- `service-spec.md`
+- 사용자, 처음 흐름, 핵심 기능 3개, 데이터, 저장 정책, 모바일 핵심 화면, 오늘 완료 기준이 정리된다.
+- Claude Code가 이어서 구현할 수 있는 체크리스트가 생긴다.
+
+저장 위치:
+
+```text
+.semiclass/artifacts/service-spec.md
+```
+
+### 1-2 디자인 룬: Claude Design
+
+사용 도구: `https://claude.ai/design`
+
+붙일 프롬프트:
+
+```text
+.semiclass/tool-prompts/02-claude-design-rules.md
+```
+
+의도된 산출물:
+- `design-rules.md`
+- 톤, 색상 토큰, 타이포, 레이아웃, 컴포넌트 규칙, 첫 화면 와이어프레임, 모바일 규칙이 정리된다.
+- Claude Code가 `app/page.tsx`와 CSS를 만들 때 바로 참고할 구현 지시문이 생긴다.
+
+저장 위치:
+
+```text
+.semiclass/artifacts/design-rules.md
+```
+
+리허설 팁:
+- 시간 절약이 필요하면 미리 만든 산출물을 붙여 넣고 “이 파일을 기준으로 구현한다”고 설명합니다.
+- 산출물 섹션 제목은 바꾸지 않습니다. 이후 Code 프롬프트가 고정 섹션을 참조하기 때문입니다.
+
+## 2. Claude Code 시작 메시지
 
 Claude Code 첫 메시지에는 `.semiclass/global-demo-context.md` 전체를 붙입니다.
 
@@ -26,7 +76,7 @@ Claude Code 첫 메시지에는 `.semiclass/global-demo-context.md` 전체를 �
 - 한 번에 모든 기능을 붙이지 않고 커리큘럼 순서를 따른다고 말한다.
 - 각 단계 끝에 시련, 아티팩트, 변경 파일, 확인 명령, 다음 스냅샷을 보고하겠다고 한다.
 
-## 2. 단계별 시연 체크
+## 3. 단계별 시연 체크
 
 ### 0-0 localhost 첫 화면
 
@@ -51,45 +101,23 @@ npm run dev
 npm run snapshot -- vibecoding-00-hello-localhost
 ```
 
-### 0-1 기획의 나침반
+### 0-1 기획/디자인 산출물 확인
 
-붙일 프롬프트: `.semiclass/prompts/00-spec.md`
-
-의도된 결과:
-- 바로 코드를 만들지 않고 질문을 먼저 한다.
-- 답변 후 `service-spec.md`를 만든다.
-
-샘플 답변:
+붙일 프롬프트: 직접 입력
 
 ```text
-사용자는 강남/삼성 근처 직장인이고, 점심시간이나 퇴근 전에 주변 생활정보를 빠르게 찾고 싶어합니다.
-처음 들어오면 검색하거나 카테고리를 고르고, 마음에 드는 항목을 저장합니다.
-꼭 필요한 기능은 생활정보 카드 목록, 검색/필터, 관심 저장입니다.
-나중 기능은 로그인, 실제 공공데이터 API, 푸시 알림입니다.
-데이터는 title/category/address/description/source_url이 필요합니다.
-저장할 데이터는 관심 항목과 메모입니다.
-모바일에서는 카드 목록과 저장 버튼이 가장 중요합니다.
-오늘 완성 기준은 로컬에서 카드 목록, 검색, 저장 버튼 흐름이 보이는 것입니다.
+.semiclass/artifacts/service-spec.md와 .semiclass/artifacts/design-rules.md를 읽고, 오늘 구현할 범위와 첫 화면 구현 기준을 짧게 요약해줘.
 ```
-
-스냅샷:
-
-```bash
-npm run snapshot -- 01-service-spec
-```
-
-### 0-2 디자인 룬
-
-붙일 프롬프트: `.semiclass/prompts/01-design.md`
 
 의도된 결과:
-- 디자인 토큰 또는 `design-rules.md`를 만든다.
-- 구현보다 화면 기준과 컴포넌트 규칙을 정리한다.
+- Claude Code가 Manyfast/Claude Design 산출물을 읽는다.
+- 첫 화면 구현 기준을 코드 작업 전에 요약한다.
+- 산출물이 비어 있으면 `.semiclass/prompts/00-spec.md`와 `.semiclass/prompts/01-design.md`를 fallback으로 사용한다.
 
 스냅샷:
 
 ```bash
-npm run snapshot -- 02-design-rules
+npm run snapshot -- vibecoding-01-artifacts-ready
 ```
 
 ### 1 첫 앱 생성
@@ -111,7 +139,7 @@ npm run dev
 스냅샷:
 
 ```bash
-npm run snapshot -- 03-static-board
+npm run snapshot -- vibecoding-03-static-board
 ```
 
 ### 2 데이터 크리스탈
@@ -126,7 +154,7 @@ npm run snapshot -- 03-static-board
 스냅샷:
 
 ```bash
-npm run snapshot -- 04-data-crystal
+npm run snapshot -- vibecoding-04-data-crystal
 ```
 
 ### 3 DB 코어
@@ -141,7 +169,7 @@ npm run snapshot -- 04-data-crystal
 스냅샷:
 
 ```bash
-npm run snapshot -- 05-supabase-save
+npm run snapshot -- vibecoding-05-supabase-save
 ```
 
 ### 4 배포 부츠
@@ -156,7 +184,7 @@ npm run snapshot -- 05-supabase-save
 스냅샷:
 
 ```bash
-npm run snapshot -- 06-vercel-ready
+npm run snapshot -- vibecoding-06-vercel-ready
 ```
 
 ### 5 신호의 검
@@ -171,7 +199,7 @@ npm run snapshot -- 06-vercel-ready
 스냅샷:
 
 ```bash
-npm run snapshot -- 07-api-route
+npm run snapshot -- vibecoding-07-api-route
 ```
 
 ### 6 신원 인장
@@ -186,7 +214,7 @@ npm run snapshot -- 07-api-route
 스냅샷:
 
 ```bash
-npm run snapshot -- 08-auth-rls
+npm run snapshot -- vibecoding-08-auth-rls
 ```
 
 ### 7 모바일 망토
@@ -201,20 +229,20 @@ npm run snapshot -- 08-auth-rls
 스냅샷:
 
 ```bash
-npm run snapshot -- 09-mobile-fcm
+npm run snapshot -- vibecoding-09-mobile-fcm
 ```
 
-## 3. 실패 시 복구
+## 4. 실패 시 복구
 
 시연 중 길어지면 바로 스냅샷으로 이동합니다.
 
 ```bash
-git reset --hard snapshots/03-static-board
+git reset --hard snapshots/vibecoding-00-empty-starter
 git clean -fd
 npm run dev
 ```
 
-## 4. 리허설 판정 기준
+## 5. 리허설 판정 기준
 
 - 첫 앱 생성 후 데이터가 코드 안에 남아 있어야 한다.
 - 첫 앱 생성 후 저장 버튼은 새로고침하면 초기화되어야 한다.

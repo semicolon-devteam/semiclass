@@ -18,6 +18,11 @@ demo-kit/<demo-id>/
   DEMO_GUIDE.md
   .semiclass/
     global-demo-context.md
+    tool-prompts/
+      01-*.md
+      02-*.md
+    artifacts/
+      README.md
     prompts/
       00-hello-localhost.md
       00-*.md
@@ -34,6 +39,8 @@ demo-kit/<demo-id>/
 | `README.md` | 설치, 실행, reset, snapshot 사용법 |
 | `DEMO_GUIDE.md` | 강사가 실제로 따라 할 시연 절차와 판정 기준 |
 | `.semiclass/global-demo-context.md` | Claude Code/Cowork 첫 메시지에 넣는 전역 시연 컨텍스트 |
+| `.semiclass/tool-prompts/*.md` | Manyfast, Claude Design 등 외부 도구에 붙여 넣는 산출물 생성 프롬프트 |
+| `.semiclass/artifacts/README.md` | 외부 도구 산출물 저장 위치와 기대 파일 계약 |
 | `.semiclass/prompts/*.md` | 단계별 프롬프트. 수강생이 따라 쓸 수 있게 긍정 요청 중심으로 작성 |
 | `scripts/snapshot.sh` | 단계 완료 후 Git tag 또는 commit snapshot을 만드는 스크립트 |
 | `.env.example` | 외부 API, Supabase, Firebase 등 데모용 env 이름만 정리 |
