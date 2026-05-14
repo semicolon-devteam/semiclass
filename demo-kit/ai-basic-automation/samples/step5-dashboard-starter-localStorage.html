@@ -7,148 +7,280 @@
   :root {
     --bg: #1D242B; --card: #252E37; --border: #3A4651;
     --blue: #068FFF; --blue2: #3BA8FF; --green: #69DB7C;
-    --yellow: #FFD166; --text: #E8ECF0; --muted: #9AA8B8;
+    --yellow: #FFD166; --red: #FF6B6B; --text: #E8ECF0; --muted: #9AA8B8;
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 32px;
+    margin: 0; padding: 24px;
     font-family: -apple-system, "Pretendard", "Segoe UI", sans-serif;
     background: var(--bg); color: var(--text);
   }
-  header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
-  h1 { margin: 0 0 8px; color: white; font-size: 28px; }
-  .meta { color: var(--muted); font-size: 14px; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+  h1 { margin: 0 0 4px; color: white; font-size: 26px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .badge { display: inline-block; background: rgba(105,219,124,0.16); color: var(--green); padding: 2px 8px; border-radius: 999px; font-size: 11px; margin-left: 8px; vertical-align: middle; }
   .reset {
     background: rgba(255,255,255,0.04); border: 1px solid var(--border);
     color: var(--muted); padding: 6px 12px; border-radius: 6px;
     cursor: pointer; font-size: 12px;
   }
   .reset:hover { color: var(--text); border-color: var(--blue); }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
   .widget {
     background: radial-gradient(circle at 50% 0%, rgba(6,143,255,0.16), transparent 70%), var(--card);
     border: 1px solid rgba(6,143,255,0.32);
-    border-radius: 12px; padding: 18px; min-height: 220px;
+    border-radius: 12px; padding: 16px; min-height: 200px;
   }
-  .widget h2 { margin: 0 0 12px; font-size: 18px; color: var(--blue2); }
-  .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+  .widget h2 { margin: 0 0 10px; font-size: 15px; color: var(--blue2); display: flex; justify-content: space-between; align-items: center; }
+  .saved-note { color: var(--green); font-size: 10px; opacity: 0; transition: opacity 0.3s; }
+  .saved-note.show { opacity: 1; }
+  .row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; align-items: center; gap: 8px; }
   .row:last-child { border: 0; }
   .amount { color: var(--yellow); font-variant-numeric: tabular-nums; }
-  .day { color: var(--muted); font-size: 12px; }
-  .input-row { display: flex; gap: 8px; margin: 6px 0; align-items: center; font-size: 14px; }
-  .input-row label { width: 80px; color: var(--muted); }
-  .input-row input { flex: 1; background: #111923; border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; font-size: 14px; }
-  .todo { display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer; }
-  .todo input { width: 16px; height: 16px; cursor: pointer; }
+  .day { color: var(--muted); font-size: 11px; }
+  .tag {
+    display: inline-block; padding: 1px 7px; border-radius: 4px;
+    font-size: 10px; font-weight: 600; cursor: pointer; user-select: none;
+    border: none; outline: none;
+  }
+  .tag.run { background: rgba(105,219,124,0.16); color: var(--green); }
+  .tag.plan { background: rgba(59,168,255,0.16); color: var(--blue2); }
+  .tag.draft { background: rgba(255,209,102,0.16); color: var(--yellow); }
+  .tag.done { background: rgba(255,255,255,0.08); color: var(--muted); }
+  .tag.todo { background: rgba(255,107,107,0.16); color: var(--red); }
+  .dday { color: var(--red); font-size: 11px; font-weight: 600; }
+  .dday.plus { color: var(--green); }
+  .kpi-row { margin: 8px 0; font-size: 12px; }
+  .kpi-row .label { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .kpi-row .label input { width: 60px; background: #111923; border: 1px solid var(--border); color: var(--yellow); padding: 2px 6px; border-radius: 4px; font-size: 11px; text-align: right; font-variant-numeric: tabular-nums; }
+  .bar { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--green)); transition: width 0.3s; }
+  .bar > span.over { background: linear-gradient(90deg, var(--green), var(--yellow)); }
+  .bar > span.under { background: linear-gradient(90deg, var(--red), var(--yellow)); }
+  .todo { display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer; font-size: 13px; }
+  .todo input { width: 14px; height: 14px; cursor: pointer; }
   .todo.done span { text-decoration: line-through; color: var(--muted); }
-  .badge { display: inline-block; background: rgba(6,143,255,0.18); color: var(--blue2); padding: 2px 8px; border-radius: 999px; font-size: 11px; margin-left: 8px; }
-  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 6px; font-size: 12px; }
-  .cal .h { text-align: center; color: var(--muted); padding: 4px; }
-  .cal .d { text-align: center; padding: 8px 4px; border-radius: 4px; background: rgba(255,255,255,0.02); position: relative; }
-  .cal .d.has-bill::after { content: "•"; color: var(--yellow); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-  .cal .d.has-pay::after { content: "•"; color: var(--green); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-  .saved-note { color: var(--green); font-size: 11px; margin-left: 8px; opacity: 0; transition: opacity 0.3s; }
-  .saved-note.show { opacity: 1; }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-top: 4px; font-size: 11px; }
+  .cal .h { text-align: center; color: var(--muted); padding: 3px; font-size: 10px; }
+  .cal .d { text-align: center; padding: 6px 3px; border-radius: 3px; background: rgba(255,255,255,0.02); position: relative; min-height: 24px; }
+  .cal .d .dots { position: absolute; bottom: 1px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; }
+  .cal .d .dot { width: 4px; height: 4px; border-radius: 50%; }
+  .cal .d .dot.bill { background: var(--yellow); }
+  .cal .d .dot.camp { background: var(--blue); }
+  .cal .d .dot.pay  { background: var(--green); }
 </style>
 </head>
 <body>
   <header>
     <div>
       <h1>김민지의 5월 사령탑 <span class="badge">localStorage</span></h1>
-      <div class="meta">2026년 5월 · 일상 + 업무 통합 · 브라우저에 데이터 유지</div>
+      <div class="sub">캠페인 · KPI · 생활 통합 · 브라우저에 데이터 유지 · 2026-05</div>
     </div>
     <button class="reset" id="reset">데이터 초기화</button>
   </header>
 
   <div class="grid">
-    <!-- 위젯 1: 고정 지출 -->
+    <!-- 위젯 1: 캠페인 진행 -->
     <div class="widget">
-      <h2>💸 고정 지출</h2>
+      <h2>📣 캠페인 진행 상황 <span class="saved-note" id="note-camp">저장됨 ✓</span></h2>
+      <div class="row"><span>봄 신상 런칭 "Hello May"</span>
+        <span><button class="tag" data-camp="hello-may">RUN</button> <span class="dday">D-7</span></span></div>
+      <div class="row"><span>충성고객 리텐션 메일</span>
+        <span><button class="tag" data-camp="retention">RUN</button> <span class="dday plus">D+5</span></span></div>
+      <div class="row"><span>인플루언서 협업 (여름)</span>
+        <span><button class="tag" data-camp="influencer">PLAN</button> <span class="dday">D-14</span></span></div>
+    </div>
+
+    <!-- 위젯 2: SNS 콘텐츠 상태 -->
+    <div class="widget">
+      <h2>📅 이번 주 SNS 콘텐츠 <span class="saved-note" id="note-sns">저장됨 ✓</span></h2>
+      <div class="row"><span>월 · 인스타 카드뉴스 "여름 룩북"</span>
+        <button class="tag" data-sns="mon">DONE</button></div>
+      <div class="row"><span>화 · 블로그 "캠페인 비하인드"</span>
+        <button class="tag" data-sns="tue">DRAFT</button></div>
+      <div class="row"><span>수 · 인스타 릴스 "고객 후기"</span>
+        <button class="tag" data-sns="wed">DRAFT</button></div>
+      <div class="row"><span>목 · 카카오 "이번 주 혜택"</span>
+        <button class="tag" data-sns="thu">DRAFT</button></div>
+      <div class="row"><span>금 · 유튜브 쇼츠 "팀 인터뷰"</span>
+        <button class="tag" data-sns="fri">TODO</button></div>
+    </div>
+
+    <!-- 위젯 3: KPI 트래커 (실적 입력 가능) -->
+    <div class="widget">
+      <h2>📊 5월 KPI 트래커 <span class="saved-note" id="note-kpi">저장됨 ✓</span></h2>
+      <div class="kpi-row" data-kpi="ctr" data-goal="2.5" data-unit="%" data-better="up">
+        <div class="label"><span>CTR</span>
+          <span><input type="number" step="0.1" data-kpi-input="ctr" value="2.1">% / 2.5%</span></div>
+        <div class="bar"><span></span></div>
+      </div>
+      <div class="kpi-row" data-kpi="cpc" data-goal="1200" data-unit="₩" data-better="down">
+        <div class="label"><span>CPC</span>
+          <span>₩<input type="number" step="50" data-kpi-input="cpc" value="1350"> / ≤₩1,200</span></div>
+        <div class="bar"><span></span></div>
+      </div>
+      <div class="kpi-row" data-kpi="conv" data-goal="3.0" data-unit="%" data-better="up">
+        <div class="label"><span>전환율</span>
+          <span><input type="number" step="0.1" data-kpi-input="conv" value="3.4">% / 3.0%</span></div>
+        <div class="bar"><span></span></div>
+      </div>
+      <div class="kpi-row" data-kpi="roas" data-goal="3.75" data-unit="x" data-better="up">
+        <div class="label"><span>ROAS</span>
+          <span><input type="number" step="0.1" data-kpi-input="roas" value="4.3">x / 3.75x</span></div>
+        <div class="bar"><span></span></div>
+      </div>
+    </div>
+
+    <!-- 위젯 4: 고정 지출 -->
+    <div class="widget">
+      <h2>💸 고정 지출 (생활)</h2>
       <div class="row"><span>🏠 월세</span><span><span class="amount">800,000</span> <span class="day">· 1일</span></span></div>
       <div class="row"><span>🏢 관리비</span><span><span class="amount">120,000</span> <span class="day">· 5일</span></span></div>
       <div class="row"><span>⚡ 전기·가스</span><span><span class="amount">59,344</span> <span class="day">· 10일</span></span></div>
-      <div class="row"><span>🏥 건보료</span><span><span class="amount">180,000</span> <span class="day">· 10일</span></span></div>
+      <div class="row"><span>🏥 건보료</span><span><span class="amount">182,600</span> <span class="day">· 10일</span></span></div>
       <div class="row"><span>🎬 넷플릭스</span><span><span class="amount">17,000</span> <span class="day">· 12일</span></span></div>
       <div class="row"><span>💰 적금</span><span><span class="amount">300,000</span> <span class="day">· 25일</span></span></div>
     </div>
 
-    <!-- 위젯 2: 변동 지출 입력 (localStorage 저장) -->
+    <!-- 위젯 5: 오늘의 루틴 -->
     <div class="widget">
-      <h2>📝 이번 달 변동 지출 <span class="saved-note" id="save-note-var">저장됨 ✓</span></h2>
-      <div class="input-row"><label>전기세</label><input type="number" placeholder="원" data-var="electricity"></div>
-      <div class="input-row"><label>가스비</label><input type="number" placeholder="원" data-var="gas"></div>
-      <div class="input-row"><label>건보료+</label><input type="number" placeholder="원" data-var="health"></div>
-      <div class="row" style="margin-top: 16px;"><span>이번 달 합계</span><span class="amount" id="sum">0</span></div>
-    </div>
-
-    <!-- 위젯 3: 오늘의 루틴 (localStorage 저장) -->
-    <div class="widget">
-      <h2>✅ 오늘의 루틴 <span class="saved-note" id="save-note-todo">저장됨 ✓</span></h2>
-      <label class="todo"><input type="checkbox" data-todo="meeting"><span>회의록 정리</span></label>
-      <label class="todo"><input type="checkbox" data-todo="reply"><span>고객 답장 5건</span></label>
-      <label class="todo"><input type="checkbox" data-todo="report"><span>주간 보고서</span></label>
-      <label class="todo"><input type="checkbox" data-todo="sns"><span>SNS 콘텐츠 1건</span></label>
+      <h2>✅ 오늘의 루틴 <span class="saved-note" id="note-todo">저장됨 ✓</span></h2>
+      <label class="todo"><input type="checkbox" data-todo="meeting"><span>회의록 정리 (캠페인 킥오프)</span></label>
+      <label class="todo"><input type="checkbox" data-todo="reply"><span>고객 답장 5건 (CS 인박스)</span></label>
+      <label class="todo"><input type="checkbox" data-todo="report"><span>주간 보고서 초안</span></label>
+      <label class="todo"><input type="checkbox" data-todo="sns"><span>SNS 릴스 초안 (수요일)</span></label>
       <label class="todo"><input type="checkbox" data-todo="exercise"><span>운동 30분</span></label>
     </div>
 
-    <!-- 위젯 4: 통합 캘린더 -->
+    <!-- 위젯 6: 통합 캘린더 -->
     <div class="widget">
-      <h2>📅 5월 캘린더</h2>
+      <h2>🗓 5월 통합 캘린더</h2>
       <div class="cal">
         <div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div><div class="h">토</div><div class="h">일</div>
-        <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d has-bill">1</div><div class="d">2</div><div class="d">3</div>
-        <div class="d">4</div><div class="d has-bill">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d has-bill">10</div>
-        <div class="d">11</div><div class="d has-bill">12</div><div class="d">13</div><div class="d">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div>
-        <div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
-        <div class="d has-pay">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d">31</div>
+        <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          <div class="d">1<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">2</div><div class="d">3</div>
+        <div class="d">4</div>
+          <div class="d">5<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+          <div class="d">10<div class="dots"><span class="dot bill"></span></div></div>
+        <div class="d">11</div>
+          <div class="d">12<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">13</div><div class="d">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div>
+        <div class="d">18</div><div class="d">19</div>
+          <div class="d">20<div class="dots"><span class="dot camp"></span></div></div>
+          <div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
+          <div class="d">25<div class="dots"><span class="dot bill"></span><span class="dot pay"></span></div></div>
+          <div class="d">26</div><div class="d">27</div>
+          <div class="d">28<div class="dots"><span class="dot camp"></span></div></div>
+          <div class="d">29</div><div class="d">30</div><div class="d">31</div>
       </div>
-      <div style="margin-top: 10px; font-size: 12px; color: var(--muted);">
-        <span style="color: var(--yellow);">•</span> 고정 지출 결제일 &nbsp; <span style="color: var(--green);">•</span> 적금 납입일
+      <div style="margin-top: 8px; font-size: 11px; color: var(--muted); line-height: 1.6;">
+        <span style="color: var(--yellow);">●</span> 결제일 &nbsp;
+        <span style="color: var(--blue);">●</span> 캠페인 마감 &nbsp;
+        <span style="color: var(--green);">●</span> 적금
       </div>
     </div>
   </div>
 
   <script>
-    const STORAGE_KEY = "semiclass-dashboard-v1";
+    const STORAGE_KEY = "semiclass-dashboard-marketer-v1";
+    const CAMP_STATES = ["PLAN", "RUN", "DONE"];
+    const SNS_STATES = ["TODO", "DRAFT", "RUN", "DONE"];
+    const TAG_CLASSES = { PLAN: "plan", RUN: "run", DRAFT: "draft", DONE: "done", TODO: "todo" };
+    const DEFAULT_CAMP = { "hello-may": "RUN", "retention": "RUN", "influencer": "PLAN" };
+    const DEFAULT_SNS = { mon: "DONE", tue: "DRAFT", wed: "DRAFT", thu: "DRAFT", fri: "TODO" };
 
-    function loadState() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { vars: {}, todos: {} }; }
-      catch { return { vars: {}, todos: {} }; }
+    function load() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
     }
-    function saveState(state) {
+    function save(state) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     }
-    function flashSaved(id) {
+    function flash(id) {
       const el = document.getElementById(id);
+      if (!el) return;
       el.classList.add("show");
       clearTimeout(el._t);
       el._t = setTimeout(() => el.classList.remove("show"), 800);
     }
-
-    const state = loadState();
-
-    // 변동 지출 입력: 복원 + 저장 + 합계
-    const inputs = document.querySelectorAll("input[data-var]");
-    const sumEl = document.getElementById("sum");
-    function recalcSum() {
-      const total = Array.from(inputs).reduce((s, i) => s + (Number(i.value) || 0), 0);
-      sumEl.textContent = total.toLocaleString();
+    function nextState(states, current) {
+      const i = states.indexOf(current);
+      return states[(i + 1) % states.length];
     }
-    inputs.forEach(i => {
-      const key = i.dataset.var;
-      if (state.vars[key] != null) i.value = state.vars[key];
-      i.addEventListener("input", () => {
-        state.vars[key] = i.value;
-        saveState(state);
-        recalcSum();
-        flashSaved("save-note-var");
+    function applyTag(button, state) {
+      button.textContent = state;
+      button.className = "tag " + (TAG_CLASSES[state] || "");
+    }
+
+    const state = load();
+    state.camp = state.camp || { ...DEFAULT_CAMP };
+    state.sns = state.sns || { ...DEFAULT_SNS };
+    state.kpi = state.kpi || { ctr: 2.1, cpc: 1350, conv: 3.4, roas: 4.3 };
+    state.todos = state.todos || {};
+
+    // 캠페인 상태 (클릭 → 순환)
+    document.querySelectorAll("[data-camp]").forEach(btn => {
+      const key = btn.dataset.camp;
+      applyTag(btn, state.camp[key] || DEFAULT_CAMP[key] || "PLAN");
+      btn.addEventListener("click", () => {
+        state.camp[key] = nextState(CAMP_STATES, state.camp[key] || "PLAN");
+        applyTag(btn, state.camp[key]);
+        save(state);
+        flash("note-camp");
       });
     });
-    recalcSum();
 
-    // 투두 체크: 복원 + 저장 + 시각 반응
-    const todos = document.querySelectorAll("input[data-todo]");
-    todos.forEach(c => {
+    // SNS 콘텐츠 상태 (클릭 → 순환)
+    document.querySelectorAll("[data-sns]").forEach(btn => {
+      const key = btn.dataset.sns;
+      applyTag(btn, state.sns[key] || DEFAULT_SNS[key] || "TODO");
+      btn.addEventListener("click", () => {
+        state.sns[key] = nextState(SNS_STATES, state.sns[key] || "TODO");
+        applyTag(btn, state.sns[key]);
+        save(state);
+        flash("note-sns");
+      });
+    });
+
+    // KPI (실적 입력 + 진행 바 자동 계산)
+    function updateKpiBar(row) {
+      const key = row.dataset.kpi;
+      const goal = Number(row.dataset.goal);
+      const better = row.dataset.better;
+      const input = row.querySelector("[data-kpi-input]");
+      const bar = row.querySelector(".bar > span");
+      const actual = Number(input.value) || 0;
+      let pct;
+      if (better === "up") {
+        pct = (actual / goal) * 100;
+      } else {
+        pct = (goal / Math.max(actual, 0.01)) * 100;
+      }
+      const width = Math.min(pct, 100);
+      bar.style.width = width + "%";
+      bar.className = pct >= 100 ? "over" : (pct >= 85 ? "" : "under");
+    }
+    document.querySelectorAll("[data-kpi]").forEach(row => {
+      const key = row.dataset.kpi;
+      const input = row.querySelector("[data-kpi-input]");
+      if (state.kpi[key] != null) input.value = state.kpi[key];
+      updateKpiBar(row);
+      input.addEventListener("input", () => {
+        state.kpi[key] = Number(input.value);
+        save(state);
+        updateKpiBar(row);
+        flash("note-kpi");
+      });
+    });
+
+    // 투두
+    document.querySelectorAll("input[data-todo]").forEach(c => {
       const key = c.dataset.todo;
       if (state.todos[key]) {
         c.checked = true;
@@ -158,14 +290,14 @@
         const checked = e.target.checked;
         e.target.parentElement.classList.toggle("done", checked);
         state.todos[key] = checked;
-        saveState(state);
-        flashSaved("save-note-todo");
+        save(state);
+        flash("note-todo");
       });
     });
 
     // 초기화
     document.getElementById("reset").addEventListener("click", () => {
-      if (!confirm("모든 입력과 체크를 초기화할까요?")) return;
+      if (!confirm("모든 캠페인 상태·SNS 상태·KPI 입력·체크를 초기화할까요?")) return;
       localStorage.removeItem(STORAGE_KEY);
       location.reload();
     });

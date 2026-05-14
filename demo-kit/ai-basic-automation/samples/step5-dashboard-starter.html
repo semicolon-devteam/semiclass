@@ -2,110 +2,161 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>김민지의 5월 사령탑 — 시작점</title>
+<title>김민지의 5월 사령탑 — 마케터 시작점</title>
 <style>
   :root {
     --bg: #1D242B; --card: #252E37; --border: #3A4651;
     --blue: #068FFF; --blue2: #3BA8FF; --green: #69DB7C;
-    --yellow: #FFD166; --text: #E8ECF0; --muted: #9AA8B8;
+    --yellow: #FFD166; --red: #FF6B6B; --text: #E8ECF0; --muted: #9AA8B8;
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 32px;
+    margin: 0; padding: 24px;
     font-family: -apple-system, "Pretendard", "Segoe UI", sans-serif;
     background: var(--bg); color: var(--text);
   }
-  h1 { margin: 0 0 8px; color: white; font-size: 28px; }
-  .meta { color: var(--muted); margin-bottom: 24px; }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  h1 { margin: 0 0 4px; color: white; font-size: 26px; }
+  .sub { color: var(--muted); margin-bottom: 20px; font-size: 13px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 14px;
+  }
   .widget {
     background: radial-gradient(circle at 50% 0%, rgba(6,143,255,0.16), transparent 70%), var(--card);
     border: 1px solid rgba(6,143,255,0.32);
-    border-radius: 12px; padding: 18px; min-height: 220px;
+    border-radius: 12px; padding: 16px; min-height: 200px;
   }
-  .widget h2 { margin: 0 0 12px; font-size: 18px; color: var(--blue2); }
-  .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+  .widget h2 { margin: 0 0 10px; font-size: 15px; color: var(--blue2); letter-spacing: -0.2px; }
+  .row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; }
   .row:last-child { border: 0; }
   .amount { color: var(--yellow); font-variant-numeric: tabular-nums; }
-  .day { color: var(--muted); font-size: 12px; }
-  .input-row { display: flex; gap: 8px; margin: 6px 0; align-items: center; font-size: 14px; }
-  .input-row label { width: 80px; color: var(--muted); }
-  .input-row input { flex: 1; background: #111923; border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; font-size: 14px; }
-  .todo { display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer; }
-  .todo input { width: 16px; height: 16px; cursor: pointer; }
+  .day { color: var(--muted); font-size: 11px; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+  .tag.run { background: rgba(105,219,124,0.16); color: var(--green); }
+  .tag.plan { background: rgba(59,168,255,0.16); color: var(--blue2); }
+  .tag.draft { background: rgba(255,209,102,0.16); color: var(--yellow); }
+  .tag.done { background: rgba(255,255,255,0.08); color: var(--muted); }
+  .tag.todo { background: rgba(255,107,107,0.16); color: var(--red); }
+  .dday { color: var(--red); font-size: 11px; font-weight: 600; }
+  .dday.plus { color: var(--green); }
+  .kpi-row { margin: 8px 0; font-size: 12px; }
+  .kpi-row .label { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .bar { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--green)); }
+  .bar > span.over { background: linear-gradient(90deg, var(--green), var(--yellow)); }
+  .bar > span.under { background: linear-gradient(90deg, var(--red), var(--yellow)); }
+  .todo { display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer; font-size: 13px; }
+  .todo input { width: 14px; height: 14px; cursor: pointer; }
   .todo.done span { text-decoration: line-through; color: var(--muted); }
-  .add-btn { margin-top: 8px; background: rgba(6,143,255,0.18); border: 1px dashed rgba(6,143,255,0.5); color: var(--blue2); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; }
-  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 6px; font-size: 12px; }
-  .cal .h { text-align: center; color: var(--muted); padding: 4px; }
-  .cal .d { text-align: center; padding: 8px 4px; border-radius: 4px; background: rgba(255,255,255,0.02); position: relative; }
-  .cal .d.has-bill::after { content: "•"; color: var(--yellow); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-  .cal .d.has-pay::after { content: "•"; color: var(--green); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-top: 4px; font-size: 11px; }
+  .cal .h { text-align: center; color: var(--muted); padding: 3px; font-size: 10px; }
+  .cal .d { text-align: center; padding: 6px 3px; border-radius: 3px; background: rgba(255,255,255,0.02); position: relative; min-height: 24px; }
+  .cal .d .dots { position: absolute; bottom: 1px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; font-size: 8px; line-height: 1; }
+  .cal .d .dot { width: 4px; height: 4px; border-radius: 50%; }
+  .cal .d .dot.bill { background: var(--yellow); }
+  .cal .d .dot.camp { background: var(--blue); }
+  .cal .d .dot.pay  { background: var(--green); }
 </style>
 </head>
 <body>
   <h1>김민지의 5월 사령탑</h1>
-  <div class="meta">2026년 5월 · 일상 + 업무 통합</div>
+  <div class="sub">캠페인 · KPI · 생활 통합 · Marketing Team · 2026-05</div>
 
   <div class="grid">
-    <!-- 위젯 1: 고정 지출 -->
+    <!-- 위젯 1: 캠페인 진행 -->
     <div class="widget">
-      <h2>💸 고정 지출</h2>
+      <h2>📣 캠페인 진행 상황</h2>
+      <div class="row"><span>봄 신상 런칭 "Hello May"</span><span><span class="tag run">RUN</span> <span class="dday">D-7</span></span></div>
+      <div class="row"><span>충성고객 리텐션 메일</span><span><span class="tag run">RUN</span> <span class="dday plus">D+5</span></span></div>
+      <div class="row"><span>인플루언서 협업 (여름)</span><span><span class="tag plan">PLAN</span> <span class="dday">D-14</span></span></div>
+    </div>
+
+    <!-- 위젯 2: SNS 콘텐츠 캘린더 -->
+    <div class="widget">
+      <h2>📅 이번 주 SNS 콘텐츠</h2>
+      <div class="row"><span>월 · 인스타 카드뉴스 "여름 룩북"</span><span class="tag done">발행</span></div>
+      <div class="row"><span>화 · 블로그 "캠페인 비하인드"</span><span class="tag draft">검수</span></div>
+      <div class="row"><span>수 · 인스타 릴스 "고객 후기"</span><span class="tag draft">초안</span></div>
+      <div class="row"><span>목 · 카카오 "이번 주 혜택"</span><span class="tag draft">초안</span></div>
+      <div class="row"><span>금 · 유튜브 쇼츠 "팀 인터뷰"</span><span class="tag todo">미작성</span></div>
+    </div>
+
+    <!-- 위젯 3: KPI 트래커 -->
+    <div class="widget">
+      <h2>📊 5월 KPI 트래커</h2>
+      <div class="kpi-row">
+        <div class="label"><span>CTR</span><span><span class="amount">2.1%</span> / 2.5% <span class="day">(84%)</span></span></div>
+        <div class="bar"><span class="under" style="width: 84%"></span></div>
+      </div>
+      <div class="kpi-row">
+        <div class="label"><span>CPC</span><span><span class="amount">₩1,350</span> / ≤₩1,200 <span class="day">(-12%)</span></span></div>
+        <div class="bar"><span class="under" style="width: 88%"></span></div>
+      </div>
+      <div class="kpi-row">
+        <div class="label"><span>전환율</span><span><span class="amount">3.4%</span> / 3.0% <span class="day">(113%)</span></span></div>
+        <div class="bar"><span class="over" style="width: 100%"></span></div>
+      </div>
+      <div class="kpi-row">
+        <div class="label"><span>ROAS</span><span><span class="amount">4.3x</span> / 3.75x <span class="day">(115%)</span></span></div>
+        <div class="bar"><span class="over" style="width: 100%"></span></div>
+      </div>
+    </div>
+
+    <!-- 위젯 4: 고정 지출 -->
+    <div class="widget">
+      <h2>💸 고정 지출 (생활)</h2>
       <div class="row"><span>🏠 월세</span><span><span class="amount">800,000</span> <span class="day">· 1일</span></span></div>
       <div class="row"><span>🏢 관리비</span><span><span class="amount">120,000</span> <span class="day">· 5일</span></span></div>
       <div class="row"><span>⚡ 전기·가스</span><span><span class="amount">59,344</span> <span class="day">· 10일</span></span></div>
-      <div class="row"><span>🏥 건보료</span><span><span class="amount">180,000</span> <span class="day">· 10일</span></span></div>
+      <div class="row"><span>🏥 건보료</span><span><span class="amount">182,600</span> <span class="day">· 10일</span></span></div>
       <div class="row"><span>🎬 넷플릭스</span><span><span class="amount">17,000</span> <span class="day">· 12일</span></span></div>
       <div class="row"><span>💰 적금</span><span><span class="amount">300,000</span> <span class="day">· 25일</span></span></div>
     </div>
 
-    <!-- 위젯 2: 변동 지출 입력 -->
-    <div class="widget">
-      <h2>📝 이번 달 변동 지출</h2>
-      <div class="input-row"><label>전기세</label><input type="number" placeholder="원" id="e"></div>
-      <div class="input-row"><label>가스비</label><input type="number" placeholder="원" id="g"></div>
-      <div class="input-row"><label>건보료+</label><input type="number" placeholder="원" id="h"></div>
-      <div class="row" style="margin-top: 16px;"><span>이번 달 합계</span><span class="amount" id="sum">0</span></div>
-    </div>
-
-    <!-- 위젯 3: 오늘의 루틴 -->
+    <!-- 위젯 5: 오늘의 루틴 -->
     <div class="widget">
       <h2>✅ 오늘의 루틴</h2>
-      <label class="todo"><input type="checkbox"><span>회의록 정리</span></label>
-      <label class="todo"><input type="checkbox"><span>고객 답장 5건</span></label>
-      <label class="todo"><input type="checkbox"><span>주간 보고서</span></label>
-      <label class="todo"><input type="checkbox"><span>SNS 콘텐츠 1건</span></label>
+      <label class="todo"><input type="checkbox"><span>회의록 정리 (캠페인 킥오프)</span></label>
+      <label class="todo"><input type="checkbox"><span>고객 답장 5건 (CS 인박스)</span></label>
+      <label class="todo"><input type="checkbox"><span>주간 보고서 초안</span></label>
+      <label class="todo"><input type="checkbox"><span>SNS 릴스 초안 (수요일)</span></label>
       <label class="todo"><input type="checkbox"><span>운동 30분</span></label>
-      <div class="add-btn">+ 추가</div>
     </div>
 
-    <!-- 위젯 4: 통합 캘린더 -->
+    <!-- 위젯 6: 통합 캘린더 -->
     <div class="widget">
-      <h2>📅 5월 캘린더</h2>
+      <h2>🗓 5월 통합 캘린더</h2>
       <div class="cal">
         <div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div><div class="h">토</div><div class="h">일</div>
-        <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d has-bill">1</div><div class="d">2</div><div class="d">3</div>
-        <div class="d">4</div><div class="d has-bill">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d has-bill">10</div>
-        <div class="d">11</div><div class="d has-bill">12</div><div class="d">13</div><div class="d">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div>
-        <div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
-        <div class="d has-pay">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d">31</div>
+        <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          <div class="d">1<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">2</div><div class="d">3</div>
+        <div class="d">4</div>
+          <div class="d">5<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+          <div class="d">10<div class="dots"><span class="dot bill"></span></div></div>
+        <div class="d">11</div>
+          <div class="d">12<div class="dots"><span class="dot bill"></span></div></div>
+          <div class="d">13</div><div class="d">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div>
+        <div class="d">18</div><div class="d">19</div>
+          <div class="d">20<div class="dots"><span class="dot camp"></span></div></div>
+          <div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
+          <div class="d">25<div class="dots"><span class="dot bill"></span><span class="dot pay"></span></div></div>
+          <div class="d">26</div><div class="d">27</div>
+          <div class="d">28<div class="dots"><span class="dot camp"></span></div></div>
+          <div class="d">29</div><div class="d">30</div><div class="d">31</div>
       </div>
-      <div style="margin-top: 10px; font-size: 12px; color: var(--muted);">
-        <span style="color: var(--yellow);">•</span> 고정 지출 결제일 &nbsp; <span style="color: var(--green);">•</span> 적금 납입일
+      <div style="margin-top: 8px; font-size: 11px; color: var(--muted); line-height: 1.6;">
+        <span style="color: var(--yellow);">●</span> 결제일 &nbsp;
+        <span style="color: var(--blue);">●</span> 캠페인 마감 &nbsp;
+        <span style="color: var(--green);">●</span> 적금
       </div>
     </div>
   </div>
 
   <script>
-    // 변동 지출 합계
-    const ids = ["e", "g", "h"];
-    const sum = document.getElementById("sum");
-    ids.forEach(id => {
-      document.getElementById(id).addEventListener("input", () => {
-        const total = ids.reduce((s, x) => s + (Number(document.getElementById(x).value) || 0), 0);
-        sum.textContent = total.toLocaleString();
-      });
-    });
-    // 투두 체크
     document.querySelectorAll(".todo input").forEach(c => {
       c.addEventListener("change", e => e.target.parentElement.classList.toggle("done", e.target.checked));
     });
