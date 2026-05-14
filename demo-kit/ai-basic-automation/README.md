@@ -63,9 +63,57 @@ demo-pack/
 
 ---
 
+## 단계 0 — Claude Project 세팅 (5분, 한 번만)
+
+오늘 전체를 담을 그릇입니다. 지침(페르소나·말투)을 한 번 적어두면 모든 대화에 자동 적용되고, 파일은 [파일] 탭에 차곡차곡 쌓아두면 단계 2·3·4가 모두 같은 자료를 자동 참고합니다. 단계 4부터는 같은 Project를 그대로 Cowork 모드로 데려갑니다.
+
+### 0-1. Project 만들기 (Chat 모드)
+
+1. `claude.ai` 접속 → 좌측 사이드바 **Projects** → **+ New project**
+2. 이름: `세미클래스 — 김민지씨 점검판` (본인 직무로 변주 시 직무명 추가)
+3. 설명(선택): `AI 쉽고 재밌게 활용하기 — 기초편 데모`
+
+### 0-2. 지침 입력 (Custom Instructions)
+
+Project 우측 "지침(Instructions)" 박스에 아래 템플릿을 그대로 붙여 넣습니다. **본인 변주는 첫 줄만 바꾸면 됩니다.**
+
+```text
+나는 1992년생 마케터, 중견기업 8년차.    ← (본인 직무·연차로 변주)
+서울 마포 1인가구, 고양이 치즈 한 마리.   ← (본인 가구로 변주)
+청약·적금·CMA 관리 중, 청년 우대형 가입 아직.
+헬스장 두 달째 안 감, 작년 콜레스테롤 살짝 높음.
+업무: 캠페인 기획·SNS·고객 답장·주간 보고서.
+
+답변은 늘 한국어 친근체로,
+숫자 출처가 없으면 "추정" 표시,
+민감정보는 가명·둥근 숫자로 바꿔서.
+```
+
+### 0-3. 파일 [파일] 탭에 미리 올려두기
+
+Project [파일] 탭에 데모 팩 `samples/`의 다음 파일을 미리 업로드해두면, 실습 2·3·4 대화가 자동으로 같은 자료를 참고합니다 — **매 대화마다 다시 첨부할 필요 없음.**
+
+| 단계 | 파일 | 비고 |
+|------|------|------|
+| 실습 2 | `samples/step2-campaign-report.md` | 메인 분석 자료 |
+| 실습 2 옵션 | `samples/step2-card-statement.csv` | 생활 변주 (선택) |
+| 실습 2 옵션 | `samples/step2-utility-bill.md` | 1인가구 옵션 (선택) |
+| 실습 3 | `samples/step3-search-targets.md` | 검색 시나리오 5종 |
+| 실습 4 | `samples/step4-deliverable-brief.md` | 결과물 4종 가이드 |
+
+> **본인 자료 변주**: 영업 실적표·개발 릴리즈·기획안·HR KPI 등 본인 직무 자료가 있다면 [파일] 탭에 같이 올려두세요. 민감정보는 미리 가명·둥근 숫자로.
+
+### 0-4. 세팅 완료 확인
+
+새 대화창에 `"내가 누군지 한 줄로 요약해줘"`만 보내보면 됩니다. 지침이 받쳐주는지 1초 만에 확인 가능.
+
+> **요금제**: 무료 플랜으로 단계 1~5 본편 모두 진행 가능합니다. Pro $20/월은 실습 5의 **Live Artifacts**(새로고침 뒤에도 데이터 유지)와 응답 속도가 필요한 분에게 권장.
+
+---
+
 ## 실습 1 — 말 걸어보기 (생활 · 분기 체크리스트)
 
-**도구**: Claude 무료 플랜 (claude.ai). 매일 쓰실 분은 Pro $20/월 권장.
+**도구**: 단계 0에서 만든 Claude Project (Chat 모드). 지침이 페르소나를 받쳐주니 본문은 짧아도 충분합니다.
 
 **프롬프트 1-1 (김민지씨 그대로 시작)**
 
@@ -84,12 +132,13 @@ demo-pack/
 표 형태로. 애매한 건 "사람 검토 필요" 표시.
 ```
 
-**프롬프트 1-3 (본인 변주 — 직무·연차·가족만)**
+**프롬프트 1-3 (본인 변주 — 지침 한 줄만 바꾸기)**
+
+본인 직무·연차·가족구성이 김민지씨와 다르면 **Project 지침 첫 줄만 수정**한 뒤 새 대화에서 그대로 다시 받아보세요. 본문에 다시 적을 필요 없습니다.
 
 ```text
-나는 [본인 직무 예: 영업 5년차 / 개발 1년차]이고 [1인가구 / 부부 / 유자녀]야.
-방금 만든 체크리스트에서 위 변주에 맞게 1~2개만 바꿔줘.
-나머지는 그대로 둬도 돼.
+방금 만든 체크리스트를 Project 지침에 맞게 1~2개만 다듬어 줘.
+나머지는 그대로.
 ```
 
 > 단계 1은 생활(분기 챙길거리)만. 최신 일정·청약 공고는 단계 3에서.
@@ -98,16 +147,16 @@ demo-pack/
 
 ## 실습 2 — 사진·파일 같이 보내기 (업무 · 캠페인 결과 + 생활 옵션)
 
-**도구**: 같은 Claude. 파일·이미지 첨부 무료 플랜에서도 가능.
+**도구**: 같은 Project (Chat 모드). 단계 0에서 [파일] 탭에 올려둔 자료를 자동 참고합니다 — 매 대화마다 다시 첨부할 필요 없음.
 
 ### 2-1. 메인 — 마케팅 캠페인 결과 분석 (김민지씨 그대로)
 
-자료: `samples/step2-campaign-report.md` (5월 "Hello May" 캠페인 결과 보고서)
+자료: Project [파일] 탭의 `step2-campaign-report.md`
 
 **프롬프트 2-1**
 
 ```text
-[step2-campaign-report.md 첨부]
+Project [파일] 탭의 step2-campaign-report.md를 보고,
 이 캠페인의 핵심 KPI 3개를 짚어줘 (CTR·CPC·전환율 등).
 다음 캠페인에서 개선할 포인트 5개를 다음 표로 정리해줘.
 
@@ -126,11 +175,10 @@ demo-pack/
 
 ### 2-2. 본인 직무로 변주 (옵션)
 
-본인이 가져온 자료(영업 실적표 / 개발 릴리즈 / 기획안 / HR KPI 등)로 같은 패턴.
+본인이 가져온 자료(영업 실적표 / 개발 릴리즈 / 기획안 / HR KPI 등)를 **Project [파일] 탭에 추가**한 뒤:
 
 ```text
-[본인 자료 첨부]
-이건 내 [직무] 5월 [캠페인/실적/릴리즈/채용] 결과야.
+방금 추가한 내 [직무] 자료(파일명 그대로 적기)로 같은 패턴 분석해줘.
 1) 핵심 지표 3개 짚기
 2) 개선 포인트 5개 "난이도·효과·첫 액션" 표
 3) 임원 보고용 3줄 요약
@@ -138,11 +186,10 @@ demo-pack/
 
 ### 2-3. 생활 변주 (옵션) — 카드 사용 내역
 
-자료: `samples/step2-card-statement.csv` (마케터 김민지씨 5월 카드 사용 95건)
+자료: Project [파일] 탭의 `step2-card-statement.csv` (마케터 김민지씨 5월 카드 사용 95건)
 
 ```text
-[step2-card-statement.csv 첨부]
-이번 달 카드 사용 내역이야.
+Project [파일] 탭의 step2-card-statement.csv 보고,
 1) 카테고리별 합계와 상위 3개
 2) 이상치 거래 (평소보다 큰 지출) 1~3건
 3) 다음 달 줄이면 좋을 항목 3개 + 줄이는 방법 1줄
@@ -154,6 +201,8 @@ demo-pack/
 
 ## 실습 3 — 도구 사용하기 (생활 · 검색 + 자동 발송)
 
+**도구**: 같은 Project (Chat 모드). 지침과 [파일] 탭이 그대로 — 본문은 짧아도 충분합니다.
+
 ### 3-1. 웹 검색 (학생 직접)
 
 **도구·켜는 법**
@@ -162,11 +211,11 @@ demo-pack/
 
 **프롬프트 3-1 (시나리오 골라 쓰기)**
 
-자료: `samples/step3-search-targets.md` 의 5종 골라 1~2개 검색.
+자료: Project [파일] 탭의 `step3-search-targets.md` 5종 중 1~2개 골라 검색.
 
 ```text
-나는 1992년생 무주택자 1인가구 직장인이야 (마포 거주).
-"[항목]"의 최신 정보를 검색해서 알려줘.
+Project [파일] 탭의 step3-search-targets.md에서 "[항목]"을
+골라, 최신 정보를 검색해서 알려줘.
 
 - 출처 URL 1개 이상
 - 마감일이 있으면 D-day 표시
@@ -204,9 +253,37 @@ demo-pack/
 
 ---
 
+## 실습 4 진입 전 — Cowork 모드로 전환 (1분)
+
+여기서부터 결과물(인포그래픽·PDF·SNS 카드·대시보드)을 만들 거라, **Chat 모드를 Cowork 모드로 바꿉니다**. 결과물 패널이 우측에 고정돼서 옆에서 바로 미리보기·수정할 수 있어요.
+
+### 전환 절차 (30초)
+
+1. Claude.ai 좌측 상단 모드 토글 → **Cowork**
+2. 새 대화 시작할 때 우측 상단 **"Project 연결 / Attach to project"**에서 단계 0에서 만든 Project 선택
+3. 단계 0의 지침과 [파일] 탭이 그대로 따라옴 — 다시 첨부할 필요 없음
+
+### 전환 후 첫 메시지 (강사 시연)
+
+```text
+방금 단계 2에서 분석한 5월 캠페인 결과를 바탕으로,
+이번에는 결과물을 만들 거야.
+
+먼저 정사각형 인포그래픽 카드 1장을
+우측 결과물 패널(HTML/SVG)에 띄워줘.
+Project [파일] 탭의 step2-campaign-report.md 숫자 그대로 써.
+```
+
+### 영속성 옵션 (요금제별)
+
+- **무료 플랜**: 본편 결과물 생성·수정·캡처까지 그대로 가능. 단, 새 세션을 시작하면 패널의 데이터는 사라짐.
+- **Pro 이상 + Live Artifacts ON**: 새로고침/내일 다시 열기 뒤에도 결과물 패널의 입력·상태가 남음. 실습 5 대시보드를 매일 누적해서 쓰실 분께 권장.
+
+---
+
 ## 실습 4 — 결과물 만들기 (업무 · 마케터 결과물 4종)
 
-자료: `samples/step4-deliverable-brief.md` — 4종 시나리오·프롬프트·검증 체크리스트 통합본.
+자료: Project [파일] 탭의 `step4-deliverable-brief.md` — 4종 시나리오·프롬프트·검증 체크리스트 통합본.
 
 ### 4-0. 보너스 — 페르소나 소개 이미지 만들기
 
@@ -222,7 +299,7 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 ### 4-1. 대표 실습 — 캠페인 인포그래픽 1장 (모두 시도)
 
-**도구**: Claude Artifact (HTML/SVG 카드). 사진톤이 필요하면 외부 이미지 생성 도구 별도.
+**도구**: Cowork 결과물 패널 (HTML/SVG 카드). 사진톤이 필요하면 외부 이미지 생성 도구 별도.
 
 **프롬프트 4-1 (임원 보고 톤)**
 
@@ -258,9 +335,9 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 | 형식 | 도구 | 사용 시점 |
 |------|------|----------|
-| **주간 보고서 PDF** | Claude Artifact → 다운로드 | 매주 금요일 캠페인·콘텐츠·CS 통합 보고 |
-| **SNS 콘텐츠 카드 3장** | Claude Artifact (HTML 카드 시리즈) | 캠페인 런칭/중간/마감 공지 |
-| **회의록 요약 PT** | Claude → Marp 슬라이드 | 회의 직후 결과 보고 |
+| **주간 보고서 PDF** | Cowork 결과물 패널 → 다운로드 | 매주 금요일 캠페인·콘텐츠·CS 통합 보고 |
+| **SNS 콘텐츠 카드 3장** | Cowork 결과물 패널 (HTML 카드 시리즈) | 캠페인 런칭/중간/마감 공지 |
+| **회의록 요약 PT** | Cowork → Marp 슬라이드 | 회의 직후 결과 보고 |
 | **1분 영상 시나리오** | 텍스트 시나리오 + 자막 | 짧은 캠페인 티저 |
 
 본인이 흥미 있는 형식 1개 메모. 시간 남으면 시도 (자세한 프롬프트는 `step4-deliverable-brief.md`).
@@ -273,9 +350,9 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 | 옵션 | 가입 도구 | 진입 | 영속성 |
 |------|---------|------|--------|
-| **Primary** — Claude 무료 + Artifact | claude.ai | 우측 패널 즉시 렌더 | ❌ 새로고침 시 사라짐 |
-| **Bonus 1** — Claude Live Artifacts (Cowork) | Claude Pro 이상 | 강사 30초 시연 | ✅ 자동 새로고침 |
-| **Bonus 2** — 로컬 `dashboard.html` + localStorage | (희망자) | 더블클릭 실행 | ✅ 브라우저 누적 |
+| **Primary** — Cowork 결과물 패널 (실습 4에서 이미 전환됨) | claude.ai | 우측 패널 즉시 렌더 | ❌ 새 세션 시 사라짐 |
+| **Primary+** — Cowork + **Live Artifacts ON** | Claude Pro 이상 | 동일 진입 | ✅ 새로고침 뒤에도 유지 |
+| **Bonus 1** — 로컬 `dashboard.html` + localStorage | (희망자) | 더블클릭 실행 | ✅ 브라우저 누적 |
 | Bonus 3 — Claude Code / Cursor / VS Code | (희망자) | 보조강사 1:1, localhost | ✅ 파일 직접 수정 |
 | (후속) Supabase MCP / Vercel | 본편 X | 후속 클래스 예고 | ✅ 클라우드 |
 
@@ -371,34 +448,34 @@ AI 결과를 그대로 믿지 말고:
 
 ---
 
-## 영속성 옵션 — Artifact/Canvas는 "체험"용
+## 영속성 옵션 — Cowork 무료는 "체험", Live Artifacts는 "누적"
 
-> Claude Artifact 안에서 만든 대시보드는 **새로고침하면 데이터 사라집니다** (sandbox CSP로 localStorage·외부 fetch 차단).
-> 매일 누적해서 쓰고 싶으면 아래 Bonus 1·2 또는 후속 클래스로 가세요.
+> Cowork 결과물 패널의 무료 세션은 새 세션을 시작하면 데이터가 사라집니다 (sandbox CSP로 localStorage·외부 fetch 차단).
+> 매일 누적해서 쓰고 싶으면 **Pro 이상 + Live Artifacts ON**(가장 추천) 또는 아래 Bonus 1·2 / 후속 클래스로 가세요.
 
 | 옵션 | 영속성 | 학생 조건 | 본편 적합 |
 |------|--------|----------|----------|
-| Artifact/Canvas 안에서 localStorage / 외부 fetch | ❌ 차단 | — | ❌ |
-| **Bonus 1 — Claude Live Artifacts (Cowork)** | ✅ 자동 새로고침 | Claude Pro/Max/Team/Enterprise | 강사 30초 시연 |
-| **Bonus 2 — 로컬 dashboard.html + localStorage** | ✅ 브라우저 누적 | 코드 저장 + 더블클릭 실행 | 희망자 1:1 |
-| Bonus 3 — Claude Code / Cursor / VS Code (localhost) | ✅ 파일 직접 수정 | IDE 사용 경험 | 희망자 1:1 |
+| Cowork 결과물 패널 (무료, Live Artifacts OFF) | ❌ 새 세션 시 사라짐 | — | 본편 진입 |
+| **Cowork + Live Artifacts ON** | ✅ 새로고침/다음날에도 유지 | Claude Pro/Max/Team/Enterprise | **본편 권장** |
+| **Bonus 1 — 로컬 dashboard.html + localStorage** | ✅ 브라우저 누적 | 코드 저장 + 더블클릭 실행 | 희망자 1:1 |
+| Bonus 2 — Claude Code / Cursor / VS Code (localhost) | ✅ 파일 직접 수정 | IDE 사용 경험 | 희망자 1:1 |
 | (후속) Supabase MCP Connector | ✅ 클라우드 DB | Claude 유료 + Supabase + MCP | **에이전틱 AI × 기초** |
 | (후속) Vercel + Supabase 풀스택 | ✅ 클라우드 + URL 공유 | 본인 노트북 + Git | **바이브코딩 × 기초** ⭐ |
 
-### Bonus 1 사용법 (Claude Pro 학생)
+### Cowork + Live Artifacts 사용법 (Claude Pro 학생)
 
-1. Claude.ai에서 Cowork 모드 활성화
-2. Artifact 생성 시 "Live Artifact" 토글 ON
+1. 실습 4에서 이미 Cowork 모드로 전환 완료 (위 "실습 4 진입 전" 참고)
+2. 결과물 생성 시 **"Live Artifact" 토글 ON** (우측 패널 상단)
 3. KPI 누적 / 매일 SNS 상태 갱신 같은 위젯 요청
-4. Artifact 다시 열어도 데이터 유지 (공유 미지원, 본인 워크스페이스 전용)
+4. 같은 Project를 다음 날 다시 열어도 결과물 패널의 데이터 유지 (공유 미지원, 본인 워크스페이스 전용)
 
-### Bonus 2 사용법 (희망자 — 자료실 starter 제공)
+### Bonus 1 사용법 (희망자 — 자료실 starter 제공)
 
 1. `samples/step5-dashboard-starter-localStorage.html` 다운로드 → 더블클릭 → KPI 입력·캠페인 상태·SNS 상태·투두 누적 동작 확인
-2. Artifact/Canvas로 본인 변주본을 만들고 싶으면 확장 프롬프트(아래) 사용
+2. Cowork 결과물 패널로 본인 변주본을 만들고 싶으면 확장 프롬프트(아래) 사용
 3. 결과를 본인 PC `dashboard.html`로 저장 → 더블클릭 → 입력·체크가 누적
 
-**확장 프롬프트** (Artifact가 만든 본인 대시보드 코드에 추가):
+**확장 프롬프트** (Cowork이 만든 본인 대시보드 코드에 추가):
 
 ```text
 방금 만든 대시보드 코드에 localStorage 저장을 추가해줘.
