@@ -10,6 +10,171 @@
 
 ---
 
+## 0. 페르소나 일러스트 4종 (보너스 — 강사용/자료 제작용)
+
+> 슬라이드 3·4에 들어간 김민지 일러스트를 같은 톤·캐릭터로 만드는 프롬프트입니다. 본인이 강사·디자이너로서 자료를 다듬거나, 학생이 본인 페르소나 이미지를 만들어 보고 싶을 때 그대로 쓰거나 변주해 보세요.
+>
+> 도구: ChatGPT 이미지 생성 / Gemini / Stable Diffusion 등. 16:9 가로 또는 정사각형 1:1.
+>
+> **캐릭터 시트(아래 0-A·0-B·0-C 공통)** — 두 프롬프트에 동일하게 반복해야 같은 인물로 인식됩니다.
+>
+> ```text
+> A Korean woman in her early 30s named Minji, low ponytail of dark
+> brown hair, soft slightly tired eyes, wearing a light gray cardigan
+> over a white shirt. Modern marketer working at a wooden desk by a
+> large window overlooking the night Seoul skyline with N Seoul Tower
+> visible. Style: soft Korean webtoon illustration, anime-influenced
+> lineart, warm cinematic lighting, clean detailed interiors,
+> painterly textures.
+> ```
+
+### 0-A. 슬라이드 3 페르소나 책상 (16:9, 측면)
+
+슬라이드 3 좌측 카드 — 가상의 동료 김민지를 소개하는 자리.
+
+```text
+[캐릭터 시트 — 위 블록 그대로 붙여넣기]
+
+Setting: Late evening, Seoul. Side / over-the-shoulder view. Minji
+seated at her desk, focused on her laptop screen which shows a
+marketing dashboard with abstract charts. On the desk: printed
+campaign report with bar charts, an SNS content calendar notebook,
+sticky notes, a smartphone with notification bubbles, a small mug
+of coffee, a small desk lamp glowing warmly. Behind her, a wall
+calendar and a few organized folder spines.
+
+Atmosphere: calm, capable, mid-task. Color palette: deep navy room,
+warm orange desk lamp, soft cyan glow from the laptop screen,
+muted blues outside the window.
+
+Avoid: full front face shot, masculine silhouette, empty left side,
+readable real-world logos or text, distorted hands.
+
+Aspect ratio 16:9, high detail, cinematic.
+```
+
+### 0-B. 슬라이드 4 좌측 — 밤 11시 야근 (BEFORE)
+
+화면 여섯 개를 오가며 야근하는 김민지.
+
+```text
+[캐릭터 시트 — 위 블록 그대로 붙여넣기]
+
+Setting: Late night, around 11 PM. Cluttered desk, papers scattered.
+Two screens visible — a laptop and a second external monitor — both
+covered with multiple browser tabs and apps stacked over each other:
+Notion task list, Slack messages, Google Sheets with numbers,
+Instagram Insights dashboard, KakaoTalk Channel chat, a Google
+Calendar view. Sticky notes covering the desk and the wall: yellow,
+pink, blue, scribbled with reminders. A smartphone next to the
+laptop also lights up with notifications. A half-finished cup of
+cold coffee. Printed campaign reports lying messy across the desk.
+
+Minji is leaning forward, one hand pressed against her forehead,
+her other hand on the trackpad, slightly slumped posture, tired
+expression. Cold blue glow from the screens reflected on her face
+mixed with a warm orange desk lamp.
+
+Atmosphere: visual overload, exhaustion, late-night overtime, the
+sense of "doing the same thing across six different screens." Color
+palette: deep navy and dark slate, with red-orange accents from the
+desk lamp and sticky notes, cool screen glow.
+
+A small desk clock shows 11:00 PM.
+
+Avoid: cheerful expression, tidy desk, only one screen, daytime
+lighting, cartoonish exaggeration.
+
+Aspect ratio 16:9, high detail, cinematic, matching the same
+illustrator style as the slide 3 illustration.
+```
+
+### 0-C. 슬라이드 4 우측 — 저녁 9시 점검 (AFTER)
+
+한 화면 점검판으로 30초 만에 점검 후 퇴근하는 김민지.
+
+```text
+[캐릭터 시트 — 위 블록 그대로 붙여넣기]
+
+Setting: Early evening, around 9 PM. Tidy, calmly lit desk. A
+single laptop open, displaying a clean one-page dashboard with six
+small widget cards in a 3x2 grid — campaign progress timeline, SNS
+content calendar, KPI tracker with progress bars, fixed expenses
+list, a short daily routine checklist, and a small monthly calendar
+with colored dots. Soft blue and green glow from the dashboard
+screen.
+
+A warm mug of tea next to the laptop, a small notebook neatly
+closed with a pen on top, a single sticky note with one line
+written on it. No paper clutter. The window behind shows the Seoul
+skyline still bright with early-evening city lights.
+
+Minji is leaning back slightly in her chair, one hand around the
+mug, a small content smile, relaxed shoulders, looking at the
+dashboard with quiet satisfaction. Warm desk lamp light, soft and
+diffused. The screen glow is gentle, not harsh.
+
+Atmosphere: calm, focused, "everything in one place," post-work
+relief. The feeling of a 30-second daily check before heading home.
+Color palette: warm wood tones, soft teal and green accents from
+the dashboard, deep navy outside the window, golden lamp light.
+
+A small desk clock shows 9:00 PM.
+
+Avoid: messy desk, multiple screens, panicked expression, harsh
+contrast, cluttered sticky notes.
+
+Aspect ratio 16:9, high detail, cinematic, matching the same
+illustrator style as the BEFORE illustration.
+```
+
+### 0-D. 김민지 정면 아바타 (정사각형 1:1, 둥근 크롭용)
+
+슬라이드 3 "김민지 (33세)" 카드 좌측에 들어가는 작은 둥근 아바타용.
+
+```text
+[캐릭터 시트 — 위 블록 그대로 붙여넣기]
+
+Composition: Front-facing portrait, head and shoulders only. Soft
+warm smile, eyes looking gently toward the viewer. Background
+blurred out — show a hint of warm desk lamp glow and the Seoul
+night skyline through a window, but keep it subtle and out of
+focus. The character should feel like a friendly, capable colleague
+introducing herself.
+
+Aspect ratio 1:1 (square). Final image will be cropped into a
+circle and have its background alpha-removed for use as a small
+profile avatar on a dark navy slide.
+
+Avoid: tilted angle, full body, busy background props, harsh
+expressions, multiple people, text.
+```
+
+### 검증 (4종 공통)
+
+- ☐ 4종 모두 같은 인물로 인식되는가? (헤어 톤·복장·얼굴형 일관성)
+- ☐ 슬라이드 3 책상 일러스트와 슬라이드 4 두 장의 톤이 시리즈로 보이는가?
+- ☐ 화면·서류에 읽을 수 있는 실제 문구·로고가 없는가?
+- ☐ 슬라이드 배경 톤(#1D242B 계열)과 어울리는가?
+- ☐ 아바타(0-D)는 정면 헤드샷이라 둥근 크롭 + 누끼 처리에 적합한가?
+
+### 후처리 (강사용)
+
+```bash
+# 누끼 처리 (rembg + onnxruntime)
+pip install rembg onnxruntime
+python3 -c "
+from rembg import remove
+with open('input.png','rb') as f: out = remove(f.read())
+open('output.png','wb').write(out)
+"
+
+# 정사각형 얼굴 크롭 + 600x600 리사이즈 (ImageMagick)
+magick output.png -gravity center -crop 50%x50%+0-100 -resize 600x600 avatar.png
+```
+
+---
+
 ## 1. 캠페인 인포그래픽 1장 (대표 실습 — 모두 시도)
 
 ### 시점
