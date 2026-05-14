@@ -21,10 +21,11 @@ demo-pack/
 ├── README.md                       (AI/사람 마스터 사용법)
 ├── USAGE.pdf                       (사람 인쇄용 사본, README.md 변환)
 └── samples/
-    ├── step2-card-statement.csv    (실습 2 카드 사용 내역)
-    ├── step2-utility-bill.md       (실습 2 전기세 고지서 텍스트)
-    ├── step3-search-targets.md     (실습 3 검색 시나리오)
-    └── step5-dashboard-starter.html (실습 5 시작점 — 최소 골격)
+    ├── step2-card-statement.csv                  (실습 2 카드 사용 내역)
+    ├── step2-utility-bill.md                     (실습 2 전기세 고지서 텍스트)
+    ├── step3-search-targets.md                   (실습 3 검색 시나리오)
+    ├── step5-dashboard-starter.html              (실습 5 시작점 — 최소 골격)
+    └── step5-dashboard-starter-localStorage.html (Bonus 2 시작점 — 변동지출·투두 누적 저장)
 ```
 
 ---
@@ -267,13 +268,59 @@ AI 결과를 그대로 믿지 말고:
 
 ---
 
+## 영속성 옵션 — Artifact/Canvas는 "체험"용
+
+> Claude Artifact / ChatGPT Canvas 안에서 만든 대시보드는 **새로고침하면 데이터 사라집니다** (sandbox CSP로 localStorage·외부 fetch 차단).
+> 매일 누적해서 쓰고 싶으면 아래 Bonus 1·2 또는 후속 클래스로 가세요.
+
+| 옵션 | 영속성 | 학생 조건 | 본편 적합 |
+|------|--------|----------|----------|
+| Artifact/Canvas 안에서 localStorage / 외부 fetch | ❌ 차단 | — | ❌ |
+| **Bonus 1 — Claude Live Artifacts (Cowork)** | ✅ 자동 새로고침 | Claude **Pro/Max/Team/Enterprise** | 강사 30초 시연 |
+| **Bonus 2 — 로컬 dashboard.html + localStorage** | ✅ 브라우저 누적 | 코드 저장 + 더블클릭 실행 | 희망자 1:1 |
+| Bonus 3 — Claude Code / Cursor / VS Code (localhost) | ✅ 파일 직접 수정 | IDE 사용 경험 | 희망자 1:1 |
+| (후속) Supabase MCP Connector | ✅ 클라우드 DB | Claude 유료 + Supabase + MCP | **에이전틱 AI × 기초** |
+| (후속) Vercel + Supabase 풀스택 | ✅ 클라우드 + URL 공유 | 본인 노트북 + Git | **바이브코딩 × 기초** ⭐ |
+
+### Bonus 1 사용법 (Claude Pro 학생)
+
+1. Claude.ai에서 Cowork 모드 활성화
+2. Artifact 생성 시 "Live Artifact" 토글 ON
+3. "변동 지출" 또는 "투두" 같은 누적 위젯 요청
+4. Artifact 다시 열어도 데이터 유지 ✓ (공유는 미지원, 본인 워크스페이스 전용)
+
+### Bonus 2 사용법 (희망자 — 자료실 starter 제공)
+
+1. `samples/step5-dashboard-starter-localStorage.html` 다운로드 → 더블클릭 → 변동 지출·투두 누적 동작 확인
+2. Artifact/Canvas로 본인 직군 변주본을 만들고 싶으면 확장 프롬프트(아래) 사용
+3. 결과를 본인 PC `dashboard.html`로 저장 → 더블클릭 → 입력·체크가 누적
+
+**확장 프롬프트** (Artifact가 만든 코드에 추가 요청):
+
+```text
+방금 만든 대시보드 코드에 localStorage 저장을 추가해줘.
+- 변동 지출 input → key별 localStorage.setItem
+- 투두 체크 상태 → 배열로 localStorage.setItem
+- 페이지 로드 시 → localStorage에서 복원
+- 데이터 초기화 버튼 1개 추가
+```
+
+### 영속성 참고 자료
+
+- [Claude Live Artifacts (eigent.ai)](https://www.eigent.ai/blog/claude-live-artifacts-guide)
+- [Use live artifacts in Claude Cowork (Anthropic Help)](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
+- [Build and share AI-powered apps with Claude — Simon Willison](https://simonwillison.net/2025/Jun/25/ai-powered-apps-with-claude/)
+- [Supabase official Claude connector](https://supabase.com/blog/supabase-is-now-an-official-claude-connector)
+
+---
+
 ## 후속 클래스 연결
 
 오늘 만든 대시보드를 더 키우고 싶다면:
 
 - AI 도구·기능 더 다양하게 → **AI 툴 활용 × 초급**
-- 매일 자동 실행되는 작업 (Tasks·MCP) → **에이전틱 AI × 기초**
-- 오늘 만든 대시보드를 본격 웹·앱 + 배포 → **바이브코딩 × 기초** ⭐
+- 매일 자동 실행되는 작업 (Tasks·MCP·Supabase Connector) → **에이전틱 AI × 기초**
+- 오늘 만든 대시보드를 본격 웹·앱 + Vercel·Supabase 배포 → **바이브코딩 × 기초** ⭐
 - Sheet·Notion·Zapier 실제 연결 → **AX 클래스**
 
 ---
