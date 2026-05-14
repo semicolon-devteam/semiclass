@@ -6,10 +6,10 @@ date: "2026-05-14"
 
 # AI 쉽고 재밌게 활용하기: 기초편 — 데모 팩 (v4-lite, 직장인 마케터 한정)
 
-> 30대 직장인 마케터 김민지의 5월 시나리오로 5단계를 따라가며 마지막에 HTML 한 페이지 "마케터 점검판" 대시보드를 만드는 데모 팩.
+> 30대 직장인 마케터 김민지씨의 5월 시나리오로 5단계를 따라가며 마지막에 HTML 한 페이지 "마케터 점검판" 대시보드를 만드는 데모 팩.
 >
 > **대상**: 30대 직장인 한정. 자영업·주부·학생은 다른 클래스에서 다룹니다.
-> **본인 변주**: 직무(영업/개발/기획/HR)·연차·가족구성만 본인에 맞게 1줄 변주. 시나리오 골격은 김민지 그대로.
+> **본인 변주**: 직무(영업/개발/기획/HR)·연차·가족구성만 본인에 맞게 1줄 변주. 시나리오 골격은 김민지씨 그대로.
 
 이 문서는 두 가지 용도로 작성됐습니다.
 - **AI가 읽는 마스터**: `README.md` (본 파일). ChatGPT/Claude에게 통째 첨부해 "내 클래스 자료입니다"로 시작 가능
@@ -35,7 +35,7 @@ demo-pack/
 
 ---
 
-## 페르소나 — 김민지 (오늘의 메인 시나리오)
+## 페르소나 — 김민지씨 (오늘의 메인 시나리오)
 
 - 1992년생 **마케터** (중견기업 8년차, 33세)
 - 서울 마포구 1인 가구. 월세 80 / 관리 12 / 전기·가스 5 / 건보 18 / 적금 30 + 구독 6종
@@ -45,11 +45,11 @@ demo-pack/
 
 ### 본인 변주 안내 (직장인 한정)
 
-- 직무: 마케터(=김민지) / 영업 / 개발 / 기획 / HR / 기타
+- 직무: 마케터(=김민지씨) / 영업 / 개발 / 기획 / HR / 기타
 - 연차: 1~3년 / 4~7년 / 8년+
 - 가족구성: 1인가구 / 부부 / 유자녀
 
-→ **시나리오 골격은 김민지를 그대로 따라옵니다.** 본인이 김민지와 가장 다른 업무 1줄만 단계 1·2 변주에 적용.
+→ **시나리오 골격은 김민지씨를 그대로 따라옵니다.** 본인이 김민지씨와 가장 다른 업무 1줄만 단계 1·2 변주에 적용.
 
 ### 단계별 비중
 
@@ -67,7 +67,7 @@ demo-pack/
 
 **도구**: ChatGPT / Claude / Gemini 중 본인 도구.
 
-**프롬프트 1-1 (김민지 그대로 시작)**
+**프롬프트 1-1 (김민지씨 그대로 시작)**
 
 ```text
 나는 1992년생 마케터고 서울 마포에서 혼자 살아.
@@ -100,7 +100,7 @@ demo-pack/
 
 **도구**: 같은 본인 도구 (ChatGPT/Claude/Gemini 모두 첨부 지원).
 
-### 2-1. 메인 — 마케팅 캠페인 결과 분석 (김민지 그대로)
+### 2-1. 메인 — 마케팅 캠페인 결과 분석 (김민지씨 그대로)
 
 자료: `samples/step2-campaign-report.md` (5월 "Hello May" 캠페인 결과 보고서)
 
@@ -138,7 +138,7 @@ demo-pack/
 
 ### 2-3. 생활 변주 (옵션) — 카드 사용 내역
 
-자료: `samples/step2-card-statement.csv` (마케터 김민지 5월 카드 사용 95건)
+자료: `samples/step2-card-statement.csv` (마케터 김민지씨 5월 카드 사용 95건)
 
 ```text
 [step2-card-statement.csv 첨부]
@@ -210,6 +210,18 @@ ChatGPT Tasks (유료) 또는 비슷한 자동 발송:
 
 자료: `samples/step4-deliverable-brief.md` — 4종 시나리오·프롬프트·검증 체크리스트 통합본.
 
+### 4-0. 보너스 — 페르소나 소개 이미지 만들기
+
+수업 슬라이드나 본인 자료에 넣을 "김민지씨의 책상" 이미지가 필요할 때 사용. 본편 필수 실습은 아니고, 이미지 생성 프롬프트 구조 예시로 봐도 됩니다.
+
+```text
+16:9 wide polished digital illustration for a dark navy presentation slide. A Korean woman office worker in her early 30s, clearly feminine silhouette, shoulder-length dark hair or low ponytail, soft blouse or cardigan, seated at a home office desk in late evening Seoul. Show her from a gentle rear three-quarter angle, not full face, with relaxed focused posture.
+
+The composition should fill the whole frame, with meaningful objects across the left and center: laptop with abstract marketing dashboard charts, printed campaign report with charts, SNS content calendar notebook, sticky notes, smartphone with unread message bubbles, coffee cup, small desk lamp, wall calendar, and a few organized documents. Avoid a large empty dark area on the left; place papers, notes, calendar, lamp glow, or desk objects there.
+
+Modern Korean marketer workspace, calm late-night work mood, dark navy background with soft blue accent lighting, professional SaaS-style illustration, clean and realistic but slightly stylized. No readable text, no logos, no brand names, no distorted hands, no masculine suit silhouette, no empty left half, no cluttered mess.
+```
+
 ### 4-1. 대표 실습 — 캠페인 인포그래픽 1장 (모두 시도)
 
 **도구**: ChatGPT 이미지 생성
@@ -276,7 +288,7 @@ ChatGPT Tasks (유료) 또는 비슷한 자동 발송:
 30대 직장인 마케터의 5월 점검판 대시보드를 HTML 한 페이지로 만들어줘.
 오른쪽 화면(Claude) 또는 미리보기 화면(ChatGPT)에서 바로 보이게.
 
-상단 헤더: "김민지의 5월 점검판" + 부제 "캠페인 · KPI · 생활 통합"
+상단 헤더: "김민지씨의 5월 점검판" + 부제 "캠페인 · KPI · 생활 통합"
 
 [업무 영역 — 좌측·중앙]
 
@@ -423,6 +435,6 @@ AI 결과를 그대로 믿지 말고:
 ## 라이선스 / 출처
 
 - 본 데모 팩은 SemiClass 비정기 클래스 "AI 쉽고 재밌게 활용하기: 기초편" 운영 자료.
-- 가상 페르소나 김민지, 가상 캠페인·KPI·카드 사용 내역. 실제 인물·회사·데이터와 무관.
+- 가상 페르소나 김민지씨, 가상 캠페인·KPI·카드 사용 내역. 실제 인물·회사·데이터와 무관.
 - 본 자료는 자유롭게 변주·재배포 가능 (CC BY 4.0).
 - 강의 등록 / 후속 트랙 안내: https://semi-colon.space/lectures/semiclass-ai-basic-automation
