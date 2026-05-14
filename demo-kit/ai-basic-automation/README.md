@@ -12,7 +12,7 @@ date: "2026-05-14"
 > **본인 변주**: 직무(영업/개발/기획/HR)·연차·가족구성만 본인에 맞게 1줄 변주. 시나리오 골격은 김민지씨 그대로.
 
 이 문서는 두 가지 용도로 작성됐습니다.
-- **AI가 읽는 마스터**: `README.md` (본 파일). ChatGPT/Claude에게 통째 첨부해 "내 클래스 자료입니다"로 시작 가능
+- **AI가 읽는 마스터**: `README.md` (본 파일). Claude에게 통째 첨부해 "내 클래스 자료입니다"로 시작
 - **사람이 보는 사본**: `USAGE.pdf` — 인쇄·휴대용
 
 ---
@@ -65,7 +65,7 @@ demo-pack/
 
 ## 실습 1 — 말 걸어보기 (생활 · 분기 체크리스트)
 
-**도구**: ChatGPT / Claude / Gemini 중 본인 도구.
+**도구**: Claude 무료 플랜 (claude.ai). 매일 쓰실 분은 Pro $20/월 권장.
 
 **프롬프트 1-1 (김민지씨 그대로 시작)**
 
@@ -98,7 +98,7 @@ demo-pack/
 
 ## 실습 2 — 사진·파일 같이 보내기 (업무 · 캠페인 결과 + 생활 옵션)
 
-**도구**: 같은 본인 도구 (ChatGPT/Claude/Gemini 모두 첨부 지원).
+**도구**: 같은 Claude. 파일·이미지 첨부 무료 플랜에서도 가능.
 
 ### 2-1. 메인 — 마케팅 캠페인 결과 분석 (김민지씨 그대로)
 
@@ -157,10 +157,8 @@ demo-pack/
 ### 3-1. 웹 검색 (학생 직접)
 
 **도구·켜는 법**
-- ChatGPT: 입력창 위 "검색" 또는 지구 아이콘 클릭
-- Claude: 답변 중 자동 웹 검색 또는 "최신 정보 검색해줘" 명시
-- Gemini: 기본 Google 검색 연동
-- Perplexity: 가입 없이 검색 답변 (`perplexity.ai`)
+- Claude: 답변 중 자동 웹 검색이 켜집니다. "최신 정보 검색해줘"라고 명시해도 좋아요.
+- 본편은 Claude 하나로 진행합니다 (평소 다른 도구도 비슷한 방식).
 
 **프롬프트 3-1 (시나리오 골라 쓰기)**
 
@@ -186,7 +184,7 @@ demo-pack/
 
 ### 3-2. 스케쥴 / Tasks (강사 시연 위주)
 
-ChatGPT Tasks (유료) 또는 비슷한 자동 발송:
+오늘 본편은 Claude의 자동 웹 검색까지. 매일 자동 발송은 후속 클래스 "에이전틱 AI × 기초"에서. 참고용 예시 프롬프트:
 
 ```text
 매일 아침 9시에 보내줘.
@@ -224,7 +222,7 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 ### 4-1. 대표 실습 — 캠페인 인포그래픽 1장 (모두 시도)
 
-**도구**: ChatGPT 이미지 생성
+**도구**: Claude Artifact (HTML/SVG 카드). 사진톤이 필요하면 외부 이미지 생성 도구 별도.
 
 **프롬프트 4-1 (임원 보고 톤)**
 
@@ -261,7 +259,7 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 | 형식 | 도구 | 사용 시점 |
 |------|------|----------|
 | **주간 보고서 PDF** | Claude Artifact → 다운로드 | 매주 금요일 캠페인·콘텐츠·CS 통합 보고 |
-| **SNS 콘텐츠 카드 3장** | ChatGPT 이미지 (일관 톤) | 캠페인 런칭/중간/마감 공지 |
+| **SNS 콘텐츠 카드 3장** | Claude Artifact (HTML 카드 시리즈) | 캠페인 런칭/중간/마감 공지 |
 | **회의록 요약 PT** | Claude → Marp 슬라이드 | 회의 직후 결과 보고 |
 | **1분 영상 시나리오** | 텍스트 시나리오 + 자막 | 짧은 캠페인 티저 |
 
@@ -275,8 +273,7 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 | 옵션 | 가입 도구 | 진입 | 영속성 |
 |------|---------|------|--------|
-| **Primary** — Claude Artifact | Claude.ai | 우측 패널 즉시 렌더 | ❌ 새로고침 시 사라짐 |
-| **Primary** — ChatGPT Canvas | ChatGPT | 미리보기 화면 | ❌ 새로고침 시 사라짐 |
+| **Primary** — Claude 무료 + Artifact | claude.ai | 우측 패널 즉시 렌더 | ❌ 새로고침 시 사라짐 |
 | **Bonus 1** — Claude Live Artifacts (Cowork) | Claude Pro 이상 | 강사 30초 시연 | ✅ 자동 새로고침 |
 | **Bonus 2** — 로컬 `dashboard.html` + localStorage | (희망자) | 더블클릭 실행 | ✅ 브라우저 누적 |
 | Bonus 3 — Claude Code / Cursor / VS Code | (희망자) | 보조강사 1:1, localhost | ✅ 파일 직접 수정 |
@@ -286,7 +283,7 @@ Modern Korean marketer workspace, calm late-night work mood, dark navy backgroun
 
 ```text
 30대 직장인 마케터의 5월 점검판 대시보드를 HTML 한 페이지로 만들어줘.
-오른쪽 화면(Claude) 또는 미리보기 화면(ChatGPT)에서 바로 보이게.
+Claude의 우측 Artifact 패널에서 바로 보이게.
 
 상단 헤더: "김민지씨의 5월 점검판" + 부제 "캠페인 · KPI · 생활 통합"
 
@@ -376,7 +373,7 @@ AI 결과를 그대로 믿지 말고:
 
 ## 영속성 옵션 — Artifact/Canvas는 "체험"용
 
-> Claude Artifact / ChatGPT Canvas 안에서 만든 대시보드는 **새로고침하면 데이터 사라집니다** (sandbox CSP로 localStorage·외부 fetch 차단).
+> Claude Artifact 안에서 만든 대시보드는 **새로고침하면 데이터 사라집니다** (sandbox CSP로 localStorage·외부 fetch 차단).
 > 매일 누적해서 쓰고 싶으면 아래 Bonus 1·2 또는 후속 클래스로 가세요.
 
 | 옵션 | 영속성 | 학생 조건 | 본편 적합 |
