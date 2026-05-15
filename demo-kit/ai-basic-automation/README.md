@@ -23,14 +23,21 @@ date: "2026-05-14"
 demo-pack/
 ├── README.md                                       (AI/사람 마스터 사용법)
 ├── USAGE.pdf                                       (사람 인쇄용 사본, README.md 변환)
-└── samples/
-    ├── step2-card-statement.csv                    (실습 2 생활 변주 — 마케터 5월 카드 사용 95건)
-    ├── step2-campaign-report.md                    (실습 2 메인 — 5월 캠페인 결과 보고서)
-    ├── step2-utility-bill.md                       (실습 2 옵션 — 1인 가구 전기·가스 고지서)
-    ├── step3-search-targets.md                     (실습 3 검색·자동 발송 시나리오 — 청약·세금·휴가·트렌드)
-    ├── step4-deliverable-brief.md                  (실습 4 결과물 4종 가이드 — 인포그래픽·PDF·SNS·PT)
-    ├── step5-dashboard-starter.html                (실습 5 시작점 — 마케터 점검판 6 위젯)
-    └── step5-dashboard-starter-localStorage.html   (Bonus 2 — KPI 입력·SNS 상태·투두 누적 저장)
+├── samples/                                        (Chat 모드용 — 실습 1~3 첨부 자료)
+│   ├── step2-campaign-report.md                    (실습 2-1 드래그앤드랍 — 5월 캠페인 결과 보고서)
+│   ├── step2-card-statement.csv                    (실습 2-2 [파일] 영역 임포트 — 카드 사용 95건)
+│   ├── step2-utility-bill.md                       (실습 2-2 [파일] 영역 임포트 — 전기·가스 고지서)
+│   ├── step3-search-targets.md                     (실습 3 [파일] 영역 임포트 — 분기 체크리스트)
+│   ├── step5-dashboard-starter.html                (실습 5 시작점 — 마케터 점검판 6 위젯)
+│   └── step5-dashboard-starter-localStorage.html   (Bonus — 입력·체크 누적 저장 버전)
+└── cowork-folder/                                  (Cowork 모드용 — 실습 4·5 폴더 통째 연결)
+    ├── README.md                                   (폴더 안내, AI가 컨텍스트로 읽음)
+    ├── 01-quarter-checklist.md                     (실습 1 산출물 가정)
+    ├── 02-campaign-analysis.md                     (실습 2-1 산출물 가정)
+    ├── 02-spending-summary.md                      (실습 2-2 산출물 가정)
+    ├── 03-search-results.md                        (실습 3 산출물 가정)
+    ├── 04-deliverable-brief.md                     (결과물 4종 명세)
+    └── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
 ```
 
 ---
@@ -89,19 +96,20 @@ Project 우측 "지침(Instructions)" 박스에 아래 템플릿을 그대로 �
 민감정보는 가명·둥근 숫자로 바꿔서.
 ```
 
-### 0-3. 파일 [파일] 탭에 미리 올려두기
+### 0-3. 파일은 시점·용도에 맞게 두 가지 방식
 
-Project [파일] 탭에 데모 팩 `samples/`의 다음 파일을 미리 업로드해두면, 실습 2·3·4 대화가 자동으로 같은 자료를 참고합니다 — **매 대화마다 다시 첨부할 필요 없음.**
+Claude Chat의 Project는 채팅에 첨부한 자료를 다음 대화로 자동 전파하지 않습니다. 그래서 **첨부 방식 두 가지**를 시점에 맞게 씁니다.
 
-| 단계 | 파일 | 비고 |
+| 방식 | 용도 | 시점 |
 |------|------|------|
-| 실습 2 | `samples/step2-campaign-report.md` | 메인 분석 자료 |
-| 실습 2 옵션 | `samples/step2-card-statement.csv` | 생활 변주 (선택) |
-| 실습 2 옵션 | `samples/step2-utility-bill.md` | 1인가구 옵션 (선택) |
-| 실습 3 | `samples/step3-search-targets.md` | 검색 시나리오 5종 |
-| 실습 4 | `samples/step4-deliverable-brief.md` | 결과물 4종 가이드 |
+| **🅐 채팅창 드래그 앤 드롭** (1회용) | 그 대화 한 번에만 쓸 자료 | 실습 2-1에서 `step2-campaign-report.md` 처음 보낼 때 |
+| **🅑 Project [파일] 영역에 미리 임포트** (누적용) | 이어지는 대화가 모두 참조할 자료 | 실습 2-2 진입 전부터 `step2-card-statement.csv`·`step2-utility-bill.md`, 실습 3 진입 전 `step3-search-targets.md` 추가 |
 
-> **본인 자료 변주**: 영업 실적표·개발 릴리즈·기획안·HR KPI 등 본인 직무 자료가 있다면 [파일] 탭에 같이 올려두세요. 민감정보는 미리 가명·둥근 숫자로.
+단계 0에서는 [파일] 영역에 아무것도 안 올려두고 **지침만** 입력합니다. 파일은 각 실습 직전에 필요할 때 [파일] 영역에 추가하거나 채팅창에 드랍합니다.
+
+> **본인 자료 변주**: 영업 실적표·개발 릴리즈·기획안·HR KPI 등 본인 직무 자료가 있다면 같은 방식으로 [파일] 영역에 같이 올려두세요. 민감정보는 미리 가명·둥근 숫자로.
+
+> 단계 4부터는 같은 Project가 아니라 **Cowork 모드 + 로컬 cowork-folder 연결**로 넘어갑니다. 자세한 흐름은 아래 "실습 4 진입 전" 섹션.
 
 ### 0-4. 세팅 완료 확인
 
@@ -157,55 +165,56 @@ Project [파일] 탭에 데모 팩 `samples/`의 다음 파일을 미리 업로�
 
 ## 실습 2 — 사진·파일 같이 보내기 (업무 · 캠페인 결과 + 생활 옵션)
 
-**도구**: 같은 Project (Chat 모드). 단계 0에서 [파일] 탭에 올려둔 자료를 자동 참고합니다 — 매 대화마다 다시 첨부할 필요 없음.
+**도구**: 같은 Project (Chat 모드). 두 단계로 나뉩니다 — **2-1은 채팅창 드래그 앤 드롭(1회용)**, **2-2부터는 [파일] 영역에 미리 임포트(누적용)**.
 
-### 2-1. 메인 — 마케팅 캠페인 결과 분석 (김민지씨 그대로)
+### 2-1. 캠페인 보고서를 드래그 앤 드롭으로 한 번 분석
 
-자료: Project [파일] 탭의 `step2-campaign-report.md`
+자료: `samples/step2-campaign-report.md` (다운로드 후 새 대화 채팅창에 드래그)
 
 **프롬프트 2-1**
 
 ```text
-Project [파일] 탭의 step2-campaign-report.md를 보고,
-이 캠페인의 핵심 KPI 3개를 짚어줘 (CTR·CPC·전환율 등).
+[step2-campaign-report.md 드래그 앤 드롭 첨부]
+
+이 캠페인 핵심 KPI 3개만 짚어주고,
 다음 캠페인에서 개선할 포인트 5개를 다음 표로 정리해줘.
 
 | 개선 포인트 | 실행 난이도 | 예상 효과 | 첫 액션 (이번 주) |
 |------------|------------|----------|-------------------|
 
-난이도: 쉬움/중간/높음, 효과: 상/중/하. 출처 데이터가 없으면 "추정".
+난이도 쉬움/중간/높음, 효과 상/중/하. 출처 없는 건 "추정".
 ```
 
-**프롬프트 2-2 (재질문 — 임원 보고 톤)**
+**프롬프트 2-1-b (재질문 — 임원 보고 톤)**
 
 ```text
 이 분석을 임원진에게 보고할 3줄 요약으로 압축해줘.
 숫자 1개, 인사이트 1개, 다음 액션 1개. 존댓말.
 ```
 
-### 2-2. 본인 직무로 변주 (옵션)
+### 2-2. 자주 쓸 파일은 [파일] 영역에 미리 임포트
 
-본인이 가져온 자료(영업 실적표 / 개발 릴리즈 / 기획안 / HR KPI 등)를 **Project [파일] 탭에 추가**한 뒤:
+먼저 Project 좌측 사이드바 **[파일]** 영역에 다음 두 파일을 미리 업로드:
+- `samples/step2-card-statement.csv` — 5월 카드 사용 95건
+- `samples/step2-utility-bill.md` — 5월 전기·가스 고지서
 
-```text
-방금 추가한 내 [직무] 자료(파일명 그대로 적기)로 같은 패턴 분석해줘.
-1) 핵심 지표 3개 짚기
-2) 개선 포인트 5개 "난이도·효과·첫 액션" 표
-3) 임원 보고용 3줄 요약
-```
+이렇게 해두면 이후 실습 3 대화에서도 이 두 파일이 자동 참고됩니다 — 다시 첨부 안 합니다.
 
-### 2-3. 생활 변주 (옵션) — 카드 사용 내역
-
-자료: Project [파일] 탭의 `step2-card-statement.csv` (마케터 김민지씨 5월 카드 사용 95건)
+**프롬프트 2-2 — 카드 + 공과금 묶어서 분석**
 
 ```text
-Project [파일] 탭의 step2-card-statement.csv 보고,
-1) 카테고리별 합계와 상위 3개
-2) 이상치 거래 (평소보다 큰 지출) 1~3건
-3) 다음 달 줄이면 좋을 항목 3개 + 줄이는 방법 1줄
+[파일] 영역의 step2-card-statement.csv와 step2-utility-bill.md를 같이 보고,
+1) 이번 달 카테고리별 합계와 상위 3개 카테고리
+2) 이상치 거래 1~3건 (평소보다 큰 지출)
+3) 5월 공과금이 4월·작년 5월과 어떻게 다른지 요점 2줄
+4) 다음 달 줄이면 좋을 항목 3개 + 줄이는 방법 1줄
 ```
 
-비교 한 줄 공유: 업무 데이터 vs 생활 데이터 중 어느 분석이 본인에게 더 와닿았는가?
+### 2-3. 본인 직무로 변주 (옵션)
+
+본인이 가져온 자료(영업 실적표 / 개발 릴리즈 / 기획안 / HR KPI 등)도 같은 방식 — **한 번만 쓸 자료는 드래그**, **이어서 계속 참고할 자료는 [파일] 영역 임포트**.
+
+비교 한 줄 공유: 업무 데이터(2-1) vs 생활 데이터(2-2) 중 어느 분석이 본인에게 더 와닿았는가?
 
 ---
 
@@ -219,27 +228,29 @@ Project [파일] 탭의 step2-card-statement.csv 보고,
 - Claude: 답변 중 자동 웹 검색이 켜집니다. "최신 정보 검색해줘"라고 명시해도 좋아요.
 - 본편은 Claude 하나로 진행합니다 (평소 다른 도구도 비슷한 방식).
 
-**프롬프트 3-1 (시나리오 골라 쓰기)**
+**사전 준비**: Project [파일] 영역에 `samples/step3-search-targets.md`를 추가합니다. 이 파일은 사용자 본인의 분기 체크리스트(청약·세금·연차·건강검진·세미나) 모음으로, AI가 이걸 보고 어느 항목을 검색할지 골라 갑니다.
 
-자료: Project [파일] 탭의 `step3-search-targets.md` 5종 중 1~2개 골라 검색.
+**프롬프트 3-1 (체크리스트 항목 골라 웹 서치)**
 
 ```text
-Project [파일] 탭의 step3-search-targets.md에서 "[항목]"을
-골라, 최신 정보를 검색해서 알려줘.
+[파일] 영역의 step3-search-targets.md에서 "이번 주 청년 무주택자 청약 신규 공고"
+항목을 골라, 웹 검색으로 최신 정보를 가져와 줘.
 
 - 출처 URL 1개 이상
-- 마감일이 있으면 D-day 표시
+- 마감일이 있으면 D-day 표시 (오늘 기준)
 - 확실하지 않으면 "확인 필요"
 - 5줄 이내 요약
-- 본인 캘린더에 옮길 수 있게 [제목·날짜·장소·준비물 한 줄] 형식 첨부
+- 캘린더 옮기기 좋게 [제목·날짜·장소·준비물 한 줄] 첨부
 ```
 
-골라 쓰는 항목:
-1. 이번 주 청년 무주택자 청약 신규 공고
-2. 이번 분기 종합소득세 신고 마감 + 직장인 환급
-3. 다음 분기 연차 사용 기한 + 잔여 연차 소진 권고
-4. 5월 직장인 무료 건강검진 대상자 + 신청 방법
-5. 이번 달 마케팅·디자인 직무 무료/저가 세미나
+**한 번 더 — 다른 항목**
+
+```text
+같은 방식으로 step3-search-targets.md의 "이번 주 무료/저가 마케팅 세미나"
+항목도 웹 검색으로 가져와 줘.
+```
+
+체크리스트엔 청약 말고도 세금·연차·건강검진·세미나가 미리 들어 있어요 — 본인 관심사 1~2개 더 시도해 보세요.
 
 ### 3-2. 스케쥴 / Tasks (강사 시연 위주)
 
@@ -263,72 +274,69 @@ Project [파일] 탭의 step3-search-targets.md에서 "[항목]"을
 
 ---
 
-## 실습 4 진입 전 — Cowork 모드로 전환 (1분)
+## 실습 4 진입 전 — Cowork 모드 + 로컬 폴더 연결 (2분)
 
-여기서부터 결과물(인포그래픽·PDF·SNS 카드·대시보드)을 만들 거라, **Chat 모드를 Cowork 모드로 바꿉니다**. 결과물 패널이 우측에 고정돼서 옆에서 바로 미리보기·수정할 수 있어요.
+Chat의 Project는 클라우드 파일이라 다른 대화로 자동 전파가 안 되지만, **Cowork은 내 PC의 폴더를 통째로 연결**합니다. 그래서 실습 4·5에서는 미리 준비된 폴더 하나를 그대로 가져갑니다.
+
+### Cowork 폴더 사전 준비
+
+데모 팩에 포함된 `cowork-folder/`를 본인 PC의 **편한 위치**에 압축 해제. 폴더 구성:
+
+| 파일 | 역할 |
+|------|------|
+| `README.md` | AI가 컨텍스트로 읽는 폴더 안내 |
+| `01-quarter-checklist.md` | 실습 1 산출물 가정 — 분기 체크리스트 |
+| `02-campaign-analysis.md` | 실습 2 산출물 가정 — 5월 캠페인 분석 + 개선 5종 |
+| `02-spending-summary.md` | 실습 2 옵션 — 카드·고지서 분석 |
+| `03-search-results.md` | 실습 3 산출물 가정 — 청약·세금·연차 검색 결과 |
+| `04-deliverable-brief.md` | 결과물 4종 명세 (인포그래픽·PDF·SNS·PT) |
+| `05-dashboard-spec.md` | 6 위젯 대시보드 + Scheduled 명세 |
+
+> 실제 본인이 실습 1~3을 진행한 결과로 위 파일들을 직접 작성해 두면 가장 좋지만, 본편 2시간 안에는 **미리 채워둔 가정 데이터**로 빠르게 실습 4·5를 체험합니다. 끝나고 본인 결과로 갈아끼우면 매일 쓸 대시보드가 됩니다.
 
 ### 전환 절차 (30초)
 
-1. Claude.ai 좌측 사이드바에서 **단계 0에서 만든 Project**를 그대로 열어둡니다
-2. 그 Project 안에서 **새 대화**를 시작하고, 메시지 박스 상단의 **Cowork 아이콘**으로 모드를 전환
-3. 같은 Project이므로 지침·[파일] 탭은 그대로 — 다시 첨부 안 해도 됩니다
+1. Claude.ai 좌측 사이드바 모드 토글 → **Cowork**
+2. **+ New task** → 작업 이름 "내 마케터 점검판"
+3. 우측 "폴더 연결" 버튼 → 압축 해제한 `cowork-folder/`를 선택
+4. 폴더 안 7개 파일이 컨텍스트로 자동 로드 — 다시 첨부 안 합니다
 
-> Claude.ai UI 워딩은 시즌별로 살짝 다를 수 있어요. "Project 안에서 새 대화 → 모드만 Cowork으로" 정도만 기억하시면 충분합니다.
+> Claude.ai UI 워딩은 시즌별로 살짝 다를 수 있어요. **"Cowork → 새 작업 → 폴더 연결"** 정도만 기억하시면 충분합니다.
 
 ### 전환 후 첫 메시지 (강사 시연)
 
 ```text
-방금 단계 2에서 분석한 5월 캠페인 결과를 바탕으로,
-이번에는 결과물을 만들 거야.
+cowork-folder/의 자료들을 모두 살펴봐.
+이제부터 이 폴더의 자료로 결과물을 만들 거야.
 
-먼저 정사각형 인포그래픽 카드 1장을
-우측 결과물 패널(HTML/SVG)에 띄워줘.
-Project [파일] 탭의 step2-campaign-report.md 숫자 그대로 써.
+먼저 5월 캠페인 결과 정사각형 인포그래픽 카드 1장을
+Cowork 우측 결과물 패널(HTML/SVG)에 띄워줘.
 ```
 
 ### 영속성 옵션 (요금제별)
 
-- **무료 플랜**: 본편 결과물 생성·수정·캡처까지 그대로 가능. 단, 새 세션을 시작하면 패널의 데이터는 사라짐.
-- **Pro 이상 + Live Artifacts ON**: 새로고침/내일 다시 열기 뒤에도 결과물 패널의 입력·상태가 남음. 실습 5 대시보드를 매일 누적해서 쓰실 분께 권장.
+- **무료 플랜**: 본편 결과물 생성·수정·저장까지 그대로 가능. 단, 새 세션을 시작하면 패널의 데이터는 사라짐.
+- **Pro 이상 + Live Artifacts ON**: 새로고침/내일 다시 열기 뒤에도 결과물 패널의 입력·상태가 남음. 실습 5 통합 대시보드를 매일 누적해서 쓰실 분께 권장.
 
 ---
 
-## 실습 4 — 결과물 만들기 (업무 · 마케터 결과물 4종)
+## 실습 4 — 결과물 만들기 (폴더 활용)
 
-자료: Project [파일] 탭의 `step4-deliverable-brief.md` — 4종 시나리오·프롬프트·검증 체크리스트 통합본.
-
-### 4-0. 보너스 — 페르소나 소개 이미지 만들기
-
-수업 슬라이드나 본인 자료에 넣을 "김민지씨의 책상" 이미지가 필요할 때 사용. 본편 필수 실습은 아니고, 이미지 생성 프롬프트 구조 예시로 봐도 됩니다.
-
-```text
-16:9 wide polished digital illustration for a dark navy presentation slide. A Korean woman office worker in her early 30s, clearly feminine silhouette, shoulder-length dark hair or low ponytail, soft blouse or cardigan, seated at a home office desk in late evening Seoul. Show her from a gentle rear three-quarter angle, not full face, with relaxed focused posture.
-
-The composition should fill the whole frame, with meaningful objects across the left and center: laptop with abstract marketing dashboard charts, printed campaign report with charts, SNS content calendar notebook, sticky notes, smartphone with unread message bubbles, coffee cup, small desk lamp, wall calendar, and a few organized documents. Avoid a large empty dark area on the left; place papers, notes, calendar, lamp glow, or desk objects there.
-
-Modern Korean marketer workspace, calm late-night work mood, dark navy background with soft blue accent lighting, professional SaaS-style illustration, clean and realistic but slightly stylized. No readable text, no logos, no brand names, no distorted hands, no masculine suit silhouette, no empty left half, no cluttered mess.
-```
+자료: `cowork-folder/04-deliverable-brief.md` — 결과물 4종(인포그래픽·PDF·SNS·PT)의 시점·도구·완성 기준. AI가 이 명세를 따라 결과물을 만들어 줍니다.
 
 ### 4-1. 대표 실습 — 캠페인 인포그래픽 1장 (모두 시도)
 
-**도구**: Cowork 결과물 패널 (HTML/SVG 카드). 사진톤이 필요하면 외부 이미지 생성 도구 별도.
-
 **프롬프트 4-1 (임원 보고 톤)**
 
-> 캠페인 이름·KPI 숫자는 **[파일] 탭의 `step2-campaign-report.md`** 가 갖고 있으므로 본문에 다시 적지 않습니다.
+> 숫자·캠페인 이름은 **`02-campaign-analysis.md`**, 형식·스타일은 **`04-deliverable-brief.md`**가 받쳐주므로 본문엔 "어떤 파일·어느 명세"만 짚으면 됩니다.
 
 ```text
-[파일] 탭의 step2-campaign-report.md로
-정사각형 인포그래픽 카드 1장을 HTML/SVG로 만들어
-Cowork 우측 결과물 패널에 띄워줘.
+cowork-folder/의 자료를 활용해서
+5월 캠페인 인포그래픽 카드 1장을 만들어줘.
 
-스타일:
-- 다크 톤(#1D242B) + 블루(#068FFF)·옐로우(#FFD166) 액센트
-- 친근하지만 정돈된 임원 보고용
-- 헤더 "Hello May 회고 · 2026-05"
-- 핵심 숫자 3개 큰 폰트
-- 인사이트 1줄, 다음 액션 1줄
-- 우측 하단 워터마크 "Marketing Team"
+- 데이터: 02-campaign-analysis.md
+- 형식·스타일: 04-deliverable-brief.md "1. 캠페인 인포그래픽" 명세
+- 출력: Cowork 우측 결과물 패널 (HTML/SVG)
 ```
 
 **프롬프트 4-2 (재질문 — 동료 공유 톤)**
@@ -367,59 +375,57 @@ Cowork 우측 결과물 패널에 띄워줘.
 | Bonus 3 — Claude Code / Cursor / VS Code | (희망자) | 보조강사 1:1, localhost | ✅ 파일 직접 수정 |
 | (후속) Supabase MCP / Vercel | 본편 X | 후속 클래스 예고 | ✅ 클라우드 |
 
-### 5-2. 프롬프트 5 — 마케터 점검판 (6 위젯)
+### 5-2. 프롬프트 5 — 폴더 통째로 활용한 통합 대시보드
 
-> 페르소나·KPI 숫자는 **단계 0 Project 지침 + [파일] 탭의 step2 보고서**가 받칩니다. 본문은 "내가 매일 보고 싶은 화면 구성"에 집중.
+> 데이터·명세 모두 **`cowork-folder/` 안 7개 파일**이 받쳐줍니다. 본문은 "어느 파일을 어떻게 합쳐달라"만.
 
 ```text
-내 5월 점검판 대시보드를 HTML 한 페이지로 만들어
-Cowork 결과물 패널에 바로 띄워줘.
+cowork-folder/의 01~05 자료를 모두 활용해서
+05-dashboard-spec.md 명세대로
+"내 5월 점검판" 6 위젯 대시보드를 만들어
+Cowork 우측 결과물 패널에 띄워줘.
 
-상단 헤더: "내 5월 점검판" + 부제 "캠페인 · KPI · 생활 통합"
-
-[업무 영역 — 좌측·중앙]
-
-위젯 1 (좌측 상단) — 캠페인 진행 상황 (3개)
-- 봄 신상 런칭 "Hello May" / RUN / D-7
-- 충성고객 리텐션 메일 / RUN / D+5
-- 인플루언서 협업 (여름) / PLAN / D-14
-각 행: [캠페인명·상태·D-day]
-
-위젯 2 (중앙 상단) — SNS 콘텐츠 캘린더 (이번 주 월~금)
-5개 행: 월~금, 각 [날짜·플랫폼·콘텐츠 제목·상태(초안/검수/발행)]
-- 5/13(월) 인스타 카드뉴스 "여름 룩북" / 발행완료
-- 5/14(화) 블로그 "캠페인 비하인드" / 검수
-- 5/15(수) 인스타 릴스 "고객 후기" / 초안
-- 5/16(목) 카카오 채널 "이번 주 혜택" / 초안
-- 5/17(금) 유튜브 쇼츠 "팀 인터뷰" / 미작성
-
-위젯 3 (우측 상단) — KPI 트래커 (진행 바)
-- CTR: 목표 2.5% / 현재 2.1% (84%)
-- CPC: 목표 ≤1,200원 / 현재 1,350원 (-12%)
-- 전환율: 목표 3.0% / 현재 3.4% (113%)
-- ROAS: 목표 3.75x / 현재 4.3x (115%)
-
-[생활 영역 — 하단]
-
-위젯 4 (좌측 하단) — 고정 지출 표
-월세 80만(1일) / 관리비 12만(5일) / 전기·가스 5만(10일) / 건보 18만(10일) / 넷플릭스 1.7만(12일) / 적금 30만(25일)
-
-위젯 5 (중앙 하단) — 오늘의 루틴 투두 (체크박스 5개)
-- 회의록 정리 (캠페인 킥오프)
-- 고객 답장 5건 (CS 인박스)
-- 주간 보고서 초안
-- SNS 릴스 초안 (수요일)
-- 운동 30분
-
-위젯 6 (우측 하단) — 통합 캘린더 미니뷰
-5월 7×5 그리드. 다음 표시:
-- 노란 점 = 고정 지출 결제일 (1·5·10·12·25)
-- 파란 점 = 캠페인 마감일 (5/20 봄 런칭, 5/28 인플루언서)
-- 초록 점 = 적금/회식
-
-톤: 다크(#1D242B) + 블루 글로우(#068FFF), 카드 #252E37, 옐로우 #FFD166, 그린 #69DB7C.
-Pretendard 또는 시스템 sans-serif. 데이터 하드코딩 OK.
+데이터 매핑은 명세 그대로:
+- 위젯 1·2: 02-campaign-analysis + 04-deliverable-brief
+- 위젯 3: 02-campaign-analysis "핵심 KPI 3"
+- 위젯 4: 02-spending-summary "공과금"
+- 위젯 5: 01-quarter-checklist "이번 주 첫 행동"
+- 위젯 6: 03-search-results "다음 액션 (캘린더 옮기기)"
 ```
+
+### 5-3. Scheduled로 매일·매주 자동 갱신 등록 (Cowork 좌측 사이드바)
+
+이 단계가 실습 5의 핵심 — 대시보드만 만들고 끝이 아니라 **매일 자동으로 최신 상태가 되는 화면**으로 만듭니다.
+
+**Cowork 좌측 사이드바 → Scheduled → + New task** 에서:
+
+```text
+/schedule daily 09:00
+cowork-folder/의 자료를 참고해서, 오늘 챙길 일 3가지를 요약해줘.
+1) 오늘 D-day 캠페인 1건 (02-campaign-analysis 기준)
+2) 오늘 마감 임박 청약/세금/연차 1건 (03-search-results 기준)
+3) 어제 SNS 발행 상태 갱신 (위젯 2 동기화)
+```
+
+```text
+/schedule weekly fri 18:00
+이번 주 캠페인 KPI 변동치를 02-campaign-analysis 기준 대비 정리하고,
+다음 주 인포그래픽 카드 1장 초안(04-deliverable-brief "1. 캠페인 인포그래픽" 명세)을
+결과물 패널에 띄워줘.
+```
+
+```text
+/schedule monthly 1 09:00
+지난달 점검판 6 위젯 스냅샷을 PDF로 저장하고,
+이번 달 시작 헤더 부제를 갱신해줘 ("내 {YYYY-MM} 점검판").
+```
+
+> Scheduled 작업은 **컴퓨터가 켜져 있을 때**만 실행됩니다(절전 모드 방지 토글). Pro 이상에서 권장.
+
+### 5-4. 시작점 (자료실 starter 2종)
+
+- **기본**: `samples/step5-dashboard-starter.html` — 6 위젯 최소 골격
+- **Bonus 1 (localStorage)**: `samples/step5-dashboard-starter-localStorage.html` — KPI 입력·캠페인 상태·SNS 상태·투두를 브라우저에 누적 저장 + 초기화 버튼
 
 ### 5-3. 시작점 (자료실 starter 2종)
 
