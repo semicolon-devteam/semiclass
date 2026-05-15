@@ -30,14 +30,25 @@ demo-pack/
 │   ├── step3-search-targets.md                     (실습 3 [파일] 영역 임포트 — 분기 체크리스트)
 │   ├── step5-dashboard-starter.html                (실습 5 시작점 — 마케터 점검판 6 위젯)
 │   └── step5-dashboard-starter-localStorage.html   (Bonus — 입력·체크 누적 저장 버전)
-└── cowork-folder/                                  (Cowork 모드용 — 실습 4·5 폴더 통째 연결)
-    ├── README.md                                   (폴더 안내, AI가 컨텍스트로 읽음)
-    ├── 01-quarter-checklist.md                     (실습 1 산출물 가정)
-    ├── 02-campaign-analysis.md                     (실습 2-1 산출물 가정)
-    ├── 02-spending-summary.md                      (실습 2-2 산출물 가정)
-    ├── 03-search-results.md                        (실습 3 산출물 가정)
-    ├── 04-deliverable-brief.md                     (결과물 4종 명세)
-    └── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
+├── cowork-folder/                                  (Cowork 모드용 — 김민지 시나리오 폴더 통째 연결)
+│   ├── CLAUDE.md                                   ⭐ 폴더 열 때 자동 로드되는 지침
+│   ├── README.md                                   (폴더 안내)
+│   ├── 00-내-프로필.md                              (페르소나 사람용 사본)
+│   ├── 01-quarter-checklist.md                     (실습 1 산출물 가정)
+│   ├── 02-campaign-analysis.md                     (실습 2-1 산출물 가정)
+│   ├── 02-spending-summary.md                      (실습 2-2 산출물 가정)
+│   ├── 03-search-results.md                        (실습 3 산출물 가정)
+│   ├── 04-deliverable-brief.md                     (결과물 4종 명세)
+│   └── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
+└── your-template/                                  ⭐ 본인 케이스로 갈아끼울 때 쓰는 빈 양식
+    ├── README.md                                   (5분 갈아끼우기 가이드 + 직군별 변주 예시)
+    ├── CLAUDE.md                                   (페르소나 영역만 비워둔 자동 지침 템플릿)
+    ├── 00-내-프로필.md                              (사람용 사본 템플릿)
+    ├── 01-domain-checklist.md                      (본인 분기 체크리스트 양식)
+    ├── 02-work-data-template.md                    (영업/개발/기획/HR 직군별 데이터 양식)
+    ├── 03-search-targets-template.md               (본인 검색 시나리오 5종 양식)
+    ├── 04-deliverable-brief.md                     (본인 결과물 4종 양식)
+    └── 05-dashboard-spec.md                        (본인 점검판 6 위젯 양식)
 ```
 
 ---
@@ -510,6 +521,26 @@ AI 결과를 그대로 믿지 말고:
 - [Use live artifacts in Claude Cowork (Anthropic Help)](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
 - [Build and share AI-powered apps with Claude — Simon Willison](https://simonwillison.net/2025/Jun/25/ai-powered-apps-with-claude/)
 - [Supabase official Claude connector](https://supabase.com/blog/supabase-is-now-an-official-claude-connector)
+
+---
+
+## 내 케이스로 갈아끼우기 (5분)
+
+본편을 김민지 마케터 시나리오로 끝까지 따라가신 뒤, **`your-template/` 폴더를 통째로 복사**해 본인 PC의 편한 위치(예: `~/Documents/my-cowork-folder/`)에 두고 다음 두 곳만 바꾸시면 본인 페르소나로 단계 4·5를 다시 돌릴 수 있습니다.
+
+1. **`CLAUDE.md`** — 페르소나 첫 두 줄(직무·가구) + 자주 쓰는 결과물 1순위 1종
+2. **`02-work-data-template.md`** — 본인 영업/개발/기획/HR 데이터 1건 (가명·둥근 숫자)
+
+나머지 4 파일(체크리스트·검색·결과물 명세·대시보드 명세)은 김민지 양식 그대로 두고 한 줄씩만 변주해도 자연스럽게 본인 톤이 나옵니다. 자세한 가이드: `your-template/README.md`.
+
+| 직군 | CLAUDE.md 첫 두 줄 변주 예시 |
+|------|---------------------------|
+| **영업 5년차** | 1994년생 B2B 영업 / 분당 부부+1, 강아지 한 마리 |
+| **개발 1년차** | 1998년생 백엔드 / 강남 1인가구, 회사 도보 15분 |
+| **기획 8년차** | 1991년생 서비스 기획 / 마포 부부+0, 자취 5년차 |
+| **HR 3년차** | 1996년생 HR 매니저 / 송파 1인가구, 통근 50분 |
+
+> 본편 시간 안에는 단계 1~3을 김민지로 빠르게 체험한 뒤, 단계 4·5만 본인 데이터로 갈아끼우는 흐름이 가장 추천됩니다. 강사·보조강사가 옆에서 도와드립니다.
 
 ---
 
