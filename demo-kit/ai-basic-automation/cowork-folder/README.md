@@ -6,8 +6,9 @@
 
 ```
 cowork-folder/
-├── README.md                       (이 파일 — AI가 컨텍스트로 읽음)
-├── 00-내-프로필.md                  (페르소나·답변 톤·자주 쓰는 결과물 — Chat의 지침 대용)
+├── CLAUDE.md                       ⭐ 폴더 열 때 Cowork이 자동으로 먼저 읽는 지침
+├── README.md                       (사람용 폴더 안내)
+├── 00-내-프로필.md                  (페르소나 사람용 사본 — CLAUDE.md와 일부 중복)
 ├── 01-quarter-checklist.md         (단계 1 산출물 — 분기 체크리스트)
 ├── 02-campaign-analysis.md         (단계 2 산출물 — 5월 캠페인 분석 + 개선 5종)
 ├── 02-spending-summary.md          (단계 2 옵션 — 카드·고지서 분석)
@@ -15,6 +16,10 @@ cowork-folder/
 ├── 04-deliverable-brief.md         (단계 4 결과물 4종 명세)
 └── 05-dashboard-spec.md            (단계 5 6 위젯 + Scheduled 명세)
 ```
+
+> **왜 `CLAUDE.md`?** Cowork은 Chat 모드의 Project 지침을 자동으로 가져오지 않습니다. 대신 폴더 최상위의 `CLAUDE.md`를 폴더 열 때 가장 먼저 읽어 컨텍스트로 사용합니다. 페르소나·답변 톤·자주 쓰는 결과물 명세를 여기 두면 모든 응답이 그 위에서 시작합니다.
+>
+> 같은 효과를 **Cowork UI의 "폴더 지침" 다이얼로그**(폴더 우측 ⋯ → 폴더 지침)에서 직접 입력해서 낼 수도 있어요 — Chat의 지침 입력과 거의 같은 UX입니다. 둘 다 쓰면 CLAUDE.md → 폴더 지침 순으로 같이 적용됩니다.
 
 ## 정리하기 (실습 4 시작 직전 1~2분 데모)
 
@@ -35,6 +40,7 @@ cowork-folder/
 
 ```
 cowork-folder/
+├── CLAUDE.md                       ⭐ 그대로 유지 (자동 지침)
 ├── 00-내-프로필.md
 ├── 1-원본데이터/
 │   └── 분기-체크리스트.md          (← 01-quarter-checklist)
@@ -46,6 +52,8 @@ cowork-folder/
     ├── 결과물-4종-가이드.md        (← 04-deliverable-brief)
     └── 점검판-대시보드-스펙.md     (← 05-dashboard-spec)
 ```
+
+> 정리 프롬프트에 "CLAUDE.md는 폴더 최상위 그대로 유지"를 한 줄 더 적어 두면 AI가 안전하게 옮깁니다.
 
 > 정리된 폴더는 그대로 두면 다음 회차·다음 분기에도 같은 구조 그대로 쓸 수 있어요. AI는 어느 위치에서든 파일명·내용으로 알아서 찾아 참조합니다.
 
