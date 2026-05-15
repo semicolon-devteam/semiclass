@@ -123,9 +123,18 @@
 
 5-2 단계 프롬프트는 README의 "실습 5-2" 섹션 참고.
 
-## Scheduled 작업 (Cowork → Scheduled)
+## Scheduled 작업 — 6 패턴 (Cowork → Scheduled 또는 `/schedule` 슬래시 명령)
 
-대시보드만 만들어 두면 끝이 아니라, **Cowork 좌측 사이드바 Scheduled** 메뉴로 매일·매주 자동 갱신을 걸어 둡니다.
+대시보드만 만들어 두면 끝이 아니라, **Cowork 좌측 사이드바 Scheduled** 메뉴 또는 `/schedule` 슬래시 명령으로 매일·매주·매월·분기 자동 갱신을 걸어 둡니다. 본 명세에 6개 패턴이 들어 있으며, 각 패턴은 `4-app-data/`의 영속 파일을 읽고 쓰면서 대시보드 위젯을 갱신합니다.
+
+1. **📰 일 단위 뉴스 스크랩** (Daily 08:30) — `news.json` 누적 + 위젯 2 갱신
+2. **📊 KPI 변동 자동 반영** (Daily 09:00) — `state.json` KPI 게이지 갱신
+3. **📅 청약·세금 D-day 알림** (Daily 09:00) — 위젯 6 캘린더 점·라벨 갱신
+4. **📄 주간 결과물 자동 생성** (Weekly Fri 18:00) — `4-app-data/weekly/{YYYY-WW}/` 에 PDF·인포그래픽 저장
+5. **📸 월말 스냅샷 + 헤더 갱신** (Monthly 마지막 평일 18:00) — `4-app-data/monthly/{YYYY-MM}/snapshot.pdf` 저장 + 카운터 리셋
+6. **🎯 분기 회고 트리거** (Quarterly 1일 09:00) — `01-quarter-checklist` 갱신 + 위젯 5 루틴 갱신
+
+각 패턴의 정확한 슬래시 명령 본문은 README의 "실습 5-3" 섹션 참고.
 
 ### Daily brief — 매일 09:00
 ```
