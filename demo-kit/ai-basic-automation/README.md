@@ -39,7 +39,8 @@ demo-pack/
 │   ├── 02-spending-summary.md                      (실습 2-2 산출물 가정)
 │   ├── 03-search-results.md                        (실습 3 산출물 가정)
 │   ├── 04-deliverable-brief.md                     (결과물 4종 명세)
-│   └── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
+│   ├── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
+│   └── scheduled-jobs.md                           ⭐ Scheduled 6 작업 (한 번에 등록용)
 └── your-template/                                  ⭐ 본인 케이스로 갈아끼울 때 쓰는 빈 양식
     ├── README.md                                   (5분 갈아끼우기 가이드 + 직군별 변주 예시)
     ├── CLAUDE.md                                   (페르소나 영역만 비워둔 자동 지침 템플릿)
@@ -431,7 +432,23 @@ state.json 에 모든 상태를 저장·복원하도록 수정해줘.
 
 ### 5-3. Scheduled로 매일·매주 자동 갱신 등록
 
-이 단계가 실습 5의 핵심 — 대시보드만 만들고 끝이 아니라 **매일 자동으로 최신 상태가 되는 화면**으로 만듭니다. 등록은 두 가지 길:
+이 단계가 실습 5의 핵심 — 대시보드만 만들고 끝이 아니라 **매일 자동으로 최신 상태가 되는 화면**으로 만듭니다.
+
+> **Scheduled = Cron job**: "매일 09:00·매주 금요일 18:00 같은 시간 규칙에 따라 작업을 자동 실행"하는 시계 같은 장치. Cowork의 Scheduled가 본인 Claude 계정에 작은 cron을 걸어두고 시간이 되면 그 프롬프트를 자동 실행해 줍니다.
+
+#### 🚀 한 번에 6개 등록 (강사 시연 30초)
+
+폴더 안 **`scheduled-jobs.md`** 에 6개 작업이 시간·본문까지 정리돼 있습니다. Cowork 대화창에 한 줄만 던지면 Claude가 차례로 `/schedule` 6번을 실행해 좌측 Scheduled에 한 번에 등록해 줍니다.
+
+```text
+이 폴더의 scheduled-jobs.md 에 있는 6개 작업을 모두 Scheduled에 등록해줘.
+각 Job의 시간·본문 그대로, /schedule 슬래시 명령 6번으로 처리.
+등록 후 좌측 사이드바 Scheduled 메뉴에 6개가 보이는지 확인하고 결과 알려줘.
+```
+
+#### 개별 등록 (한 개씩 시도하고 싶을 때)
+
+각 Job의 정확한 프롬프트는 `cowork-folder/scheduled-jobs.md` 에 있습니다. 본인이 가장 유용한 1~2개부터 시작하세요. 직접 입력하려면 두 가지 길:
 
 - **🅐 UI 등록**: Cowork 좌측 사이드바 → `Scheduled` → `+ New task` → 시간·본문 입력
 - **🅑 슬래시 명령 (더 빠름)**: 같은 Cowork 대화창에 `/schedule daily 08:30 ...` 한 줄만 적으면 좌측 Scheduled에 자동 등록

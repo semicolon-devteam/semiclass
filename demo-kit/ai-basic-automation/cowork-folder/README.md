@@ -14,7 +14,8 @@ cowork-folder/
 ├── 02-spending-summary.md          (단계 2 옵션 — 카드·고지서 분석)
 ├── 03-search-results.md            (단계 3 산출물 — 청약·세금·연차 검색 결과)
 ├── 04-deliverable-brief.md         (단계 4 결과물 4종 명세)
-└── 05-dashboard-spec.md            (단계 5 6 위젯 + Scheduled 명세)
+├── 05-dashboard-spec.md            (단계 5 6 위젯 + Scheduled 명세)
+└── scheduled-jobs.md               ⭐ Scheduled 6 작업 모음 (한 번에 등록용)
 ```
 
 > **왜 `CLAUDE.md`?** Cowork은 Chat 모드의 Project 지침을 자동으로 가져오지 않습니다. 대신 폴더 최상위의 `CLAUDE.md`를 폴더 열 때 가장 먼저 읽어 컨텍스트로 사용합니다. 페르소나·답변 톤·자주 쓰는 결과물 명세를 여기 두면 모든 응답이 그 위에서 시작합니다.
