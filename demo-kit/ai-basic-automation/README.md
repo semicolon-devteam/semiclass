@@ -4,9 +4,9 @@ author: "SemiClass"
 date: "2026-05-14"
 ---
 
-# AI 쉽고 재밌게 활용하기: 기초편 — 데모 팩 (v4-lite, 직장인 마케터 한정)
+# AI 쉽고 재밌게 활용하기: 기초편 — 데모 팩 (v5, 직장인 마케터 한정)
 
-> 30대 직장인 마케터 김민지씨의 5월 시나리오로 5단계를 따라가며 마지막에 HTML 한 페이지 "마케터 점검판" 대시보드를 만드는 데모 팩.
+> 30대 직장인 마케터 김민지씨의 5월 시나리오로 5단계를 따라가며 마지막에 HTML 한 페이지 "마케터 점검판" 대시보드를 만드는 데모 팩. **Claude 무료 플랜 + Chat Project + Artifact 하나로 본편 완결** (Cowork·자동 갱신은 부록).
 >
 > **대상**: 30대 직장인 한정. 자영업·주부·학생은 다른 클래스에서 다룹니다.
 > **본인 변주**: 직무(영업/개발/기획/HR)·연차·가족구성만 본인에 맞게 1줄 변주. 시나리오 골격은 김민지씨 그대로.
@@ -19,37 +19,40 @@ date: "2026-05-14"
 
 ## 데모 팩 구성
 
+> **v5 (Cowork 제거)**: 본편 5단계는 **Claude 무료 플랜 + Chat Project + Artifact 하나로 끝까지** 갑니다. 설치·결제·로컬 개발환경 0. Cowork·Live Artifacts·Scheduled는 Pro($20)+ 전용이라 **부록(심화·후속 클래스)** 으로 분리했습니다.
+
 ```
 demo-pack/
 ├── README.md                                       (AI/사람 마스터 사용법)
 ├── USAGE.pdf                                       (사람 인쇄용 사본, README.md 변환)
-├── samples/                                        (Chat 모드용 — 실습 1~3 첨부 자료)
+├── samples/                                        (본편 — Chat Project 첨부 자료)
 │   ├── step2-campaign-report.md                    (실습 2-1 드래그앤드랍 — 5월 캠페인 결과 보고서)
 │   ├── step2-card-statement.csv                    (실습 2-2 [파일] 영역 임포트 — 카드 사용 95건)
 │   ├── step2-utility-bill.md                       (실습 2-2 [파일] 영역 임포트 — 전기·가스 고지서)
 │   ├── step3-search-targets.md                     (실습 3 [파일] 영역 임포트 — 분기 체크리스트)
-│   ├── step5-dashboard-starter.html                (실습 5 시작점 — 마케터 점검판 6 위젯)
-│   └── step5-dashboard-starter-localStorage.html   (Bonus — 입력·체크 누적 저장 버전)
-├── cowork-folder/                                  (Cowork 모드용 — 김민지 시나리오 폴더 통째 연결)
-│   ├── CLAUDE.md                                   ⭐ 폴더 열 때 자동 로드되는 지침
-│   ├── README.md                                   (폴더 안내)
+│   ├── step5-dashboard-starter-localStorage.html   ⭐ 실습 5 정식 시작점 — 입력·체크 매일 누적
+│   └── step5-dashboard-starter.html                (백업 — localStorage 없는 최소 골격)
+├── chat-project-files/                             (본편 — Project [파일] 탭에 올리는 산출물 가정)
+│   ├── 00-project-지침.md                          ⭐ Project 지침 박스에 붙여넣을 텍스트 (페르소나·톤·정책)
+│   ├── README.md                                   (파일 안내)
 │   ├── 00-내-프로필.md                              (페르소나 사람용 사본)
 │   ├── 01-quarter-checklist.md                     (실습 1 산출물 가정)
 │   ├── 02-campaign-analysis.md                     (실습 2-1 산출물 가정)
 │   ├── 02-spending-summary.md                      (실습 2-2 산출물 가정)
 │   ├── 03-search-results.md                        (실습 3 산출물 가정)
 │   ├── 04-deliverable-brief.md                     (결과물 4종 명세)
-│   ├── 05-dashboard-spec.md                        (대시보드 + Scheduled 명세)
-│   └── scheduled-jobs.md                           ⭐ Scheduled 6 작업 (한 번에 등록용)
-└── your-template/                                  ⭐ 본인 케이스로 갈아끼울 때 쓰는 빈 양식
-    ├── README.md                                   (5분 갈아끼우기 가이드 + 직군별 변주 예시)
-    ├── CLAUDE.md                                   (페르소나 영역만 비워둔 자동 지침 템플릿)
-    ├── 00-내-프로필.md                              (사람용 사본 템플릿)
-    ├── 01-domain-checklist.md                      (본인 분기 체크리스트 양식)
-    ├── 02-work-data-template.md                    (영업/개발/기획/HR 직군별 데이터 양식)
-    ├── 03-search-targets-template.md               (본인 검색 시나리오 5종 양식)
-    ├── 04-deliverable-brief.md                     (본인 결과물 4종 양식)
-    └── 05-dashboard-spec.md                        (본인 점검판 6 위젯 양식)
+│   └── 05-dashboard-spec.md                        (대시보드 명세 — 4위젯 본편/6위젯 보너스)
+├── your-template/                                  ⭐ 본인 케이스로 갈아끼울 빈 양식 (Chat Project 기준)
+│   ├── README.md                                   (5분 갈아끼우기 — Project 생성→지침→파일→실습)
+│   ├── 00-project-지침.md                          (페르소나 영역만 비워둔 지침 템플릿)
+│   ├── 00-내-프로필.md                              (사람용 사본 템플릿)
+│   ├── 01-domain-checklist.md                      (본인 분기 체크리스트 양식)
+│   ├── 02-work-data-template.md                    (영업/개발/기획/HR 직군별 데이터 양식)
+│   ├── 03-search-targets-template.md               (본인 검색 시나리오 양식)
+│   ├── 04-deliverable-brief.md                     (본인 결과물 4종 양식)
+│   └── 05-dashboard-spec.md                        (본인 점검판 위젯 양식)
+└── appendix-pro/                                   (부록 — Pro($20)+ 심화·후속 클래스)
+    └── scheduled-jobs.md                           (Cowork Scheduled 6 작업 — 매일 자동 갱신)
 ```
 
 ---
@@ -84,7 +87,7 @@ demo-pack/
 
 ## 단계 0 — Claude Project 세팅 (5분, 한 번만)
 
-오늘 전체를 담을 그릇입니다. 지침(페르소나·말투)을 한 번 적어두면 모든 대화에 자동 적용되고, 파일은 [파일] 탭에 차곡차곡 쌓아두면 단계 2·3·4가 모두 같은 자료를 자동 참고합니다. 단계 4부터는 같은 Project를 그대로 Cowork 모드로 데려갑니다.
+오늘 전체를 담을 그릇입니다. 지침(페르소나·말투)을 한 번 적어두면 모든 대화에 자동 적용되고, 파일은 [파일] 탭에 차곡차곡 쌓아두면 단계 2·3·4·5가 모두 같은 자료를 자동 참고합니다. **5단계 전부 이 하나의 Chat Project 안에서** 끝납니다 (무료 플랜 가능).
 
 ### 0-1. Project 만들기 (Chat 모드)
 
@@ -121,7 +124,7 @@ Claude Chat의 Project는 채팅에 첨부한 자료를 다음 대화로 자동 
 
 > **본인 자료 변주**: 영업 실적표·개발 릴리즈·기획안·HR KPI 등 본인 직무 자료가 있다면 같은 방식으로 [파일] 영역에 같이 올려두세요. 민감정보는 미리 가명·둥근 숫자로.
 
-> 단계 4부터는 같은 Project가 아니라 **Cowork 모드 + 로컬 cowork-folder 연결**로 넘어갑니다. 자세한 흐름은 아래 "실습 4 진입 전" 섹션.
+> 단계 4·5도 **같은 Chat Project 안에서** Artifact로 진행합니다. Cowork·자동 갱신은 부록(Pro+).
 
 ### 0-4. 세팅 완료 확인
 
@@ -136,7 +139,7 @@ Claude Chat의 Project는 채팅에 첨부한 자료를 다음 대화로 자동 
 
 > 두 케이스 모두 실습 1 시작 직후 강사가 "지침 확인 한 번씩 같이 해볼게요" 30초 시연으로 일괄 점검하면 가장 효율적.
 
-> **요금제**: 무료 플랜으로 단계 1~5 본편 모두 진행 가능합니다. Pro $20/월은 실습 5의 **Live Artifacts**(새로고침 뒤에도 데이터 유지)와 응답 속도가 필요한 분에게 권장.
+> **요금제**: 본편 단계 1~5는 **Claude 무료 플랜 하나로 전부** 가능 (Projects·Artifacts·웹검색·파일업로드 무료 포함). Pro $20/월은 부록(Cowork Live Artifacts·Scheduled 자동 갱신)·응답 속도가 필요한 분에게만.
 
 ---
 
@@ -286,68 +289,22 @@ Claude Chat의 Project는 채팅에 첨부한 자료를 다음 대화로 자동 
 
 ---
 
-## 실습 4 진입 전 — Cowork 모드 + 로컬 폴더 연결 (2분)
+## 실습 4 — 결과물 만들기 (Chat Artifact)
 
-Chat의 Project는 클라우드 파일이라 다른 대화로 자동 전파가 안 되지만, **Cowork은 내 PC의 폴더를 통째로 연결**합니다. 그래서 실습 4·5에서는 미리 준비된 폴더 하나를 그대로 가져갑니다.
+> v5: Cowork·로컬 폴더 연결을 **없앴습니다.** 실습 4·5는 단계 0에서 만든 **같은 Chat Project 안에서** Artifact로 진행합니다 — 무료 플랜도 전부 가능. (Cowork으로 매일 자동 갱신까지 하고 싶은 분은 맨 아래 "부록" 참고)
 
-### Cowork 폴더 사전 준비
-
-데모 팩에 포함된 `cowork-folder/`를 본인 PC의 **편한 위치**에 압축 해제. 폴더 구성:
-
-| 파일 | 역할 |
-|------|------|
-| `README.md` | AI가 컨텍스트로 읽는 폴더 안내 |
-| `01-quarter-checklist.md` | 실습 1 산출물 가정 — 분기 체크리스트 |
-| `02-campaign-analysis.md` | 실습 2 산출물 가정 — 5월 캠페인 분석 + 개선 5종 |
-| `02-spending-summary.md` | 실습 2 옵션 — 카드·고지서 분석 |
-| `03-search-results.md` | 실습 3 산출물 가정 — 청약·세금·연차 검색 결과 |
-| `04-deliverable-brief.md` | 결과물 4종 명세 (인포그래픽·PDF·SNS·PT) |
-| `05-dashboard-spec.md` | 6 위젯 대시보드 + Scheduled 명세 |
-
-> 실제 본인이 실습 1~3을 진행한 결과로 위 파일들을 직접 작성해 두면 가장 좋지만, 본편 2시간 안에는 **미리 채워둔 가정 데이터**로 빠르게 실습 4·5를 체험합니다. 끝나고 본인 결과로 갈아끼우면 매일 쓸 대시보드가 됩니다.
-
-### 전환 절차 (30초)
-
-1. Claude.ai 좌측 사이드바 모드 토글 → **Cowork**
-2. **+ New task** → 작업 이름 "내 마케터 점검판"
-3. 우측 "폴더 연결" 버튼 → 압축 해제한 `cowork-folder/`를 선택
-4. 폴더 안 7개 파일이 컨텍스트로 자동 로드 — 다시 첨부 안 합니다
-
-> Claude.ai UI 워딩은 시즌별로 살짝 다를 수 있어요. **"Cowork → 새 작업 → 폴더 연결"** 정도만 기억하시면 충분합니다.
-
-### 전환 후 첫 메시지 (강사 시연)
-
-```text
-cowork-folder/의 자료들을 모두 살펴봐.
-이제부터 이 폴더의 자료로 결과물을 만들 거야.
-
-먼저 5월 캠페인 결과 정사각형 인포그래픽 카드 1장을
-Cowork 우측 결과물 패널(HTML/SVG)에 띄워줘.
-```
-
-### 영속성 옵션 (요금제별)
-
-- **무료 플랜**: 본편 결과물 생성·수정·저장까지 그대로 가능. 단, 새 세션을 시작하면 패널의 데이터는 사라짐.
-- **Pro 이상 + Live Artifacts ON**: 새로고침/내일 다시 열기 뒤에도 결과물 패널의 입력·상태가 남음. 실습 5 통합 대시보드를 매일 누적해서 쓰실 분께 권장.
-
----
-
-## 실습 4 — 결과물 만들기 (정리된 폴더 활용)
-
-자료: `3-결과물-명세/결과물-4종-가이드.md` (정리 전 `04-deliverable-brief.md`) — 결과물 4종(인포그래픽·PDF·SNS·PT)의 시점·도구·완성 기준. AI가 이 명세를 따라 결과물을 만들어 줍니다.
+자료: 단계 0에서 [파일] 영역에 올려둔 `04-deliverable-brief.md`(결과물 4종 명세) + `02-campaign-analysis.md` 가정 산출물. 본편 자료라 다시 첨부 안 합니다.
 
 ### 4-1. 대표 실습 — 캠페인 인포그래픽 1장 (모두 시도)
 
 **프롬프트 4-1 (임원 보고 톤)**
 
-> 숫자·캠페인 이름은 **`2-산출물/캠페인-5월-분석.md`**, 형식·스타일은 **`3-결과물-명세/결과물-4종-가이드.md`**가 받쳐주므로 본문엔 "어떤 파일·어느 명세"만 짚으면 됩니다.
+> 숫자·캠페인 이름은 **`02-campaign-analysis.md`**, 형식·스타일은 **`04-deliverable-brief.md`**가 [파일] 영역에서 받쳐주므로 본문엔 "어떤 파일·어느 명세"만 짚으면 됩니다.
 
 ```text
-방금 정리한 폴더로 5월 캠페인 인포그래픽 카드 1장을 만들어줘.
-
-- 데이터: 2-산출물/캠페인-5월-분석.md
-- 형식·스타일: 3-결과물-명세/결과물-4종-가이드.md "1. 캠페인 인포그래픽" 명세
-- 출력: Cowork 우측 결과물 패널 (HTML/SVG)
+[파일] 영역의 04-deliverable-brief.md "1. 캠페인 인포그래픽" 명세대로,
+02-campaign-analysis.md 숫자로 정사각형 인포그래픽 카드 1장을
+Artifact로 띄워줘. (우측 미리보기 패널에 바로)
 ```
 
 **프롬프트 4-2 (재질문 — 동료 공유 톤)**
@@ -365,200 +322,74 @@ Cowork 우측 결과물 패널(HTML/SVG)에 띄워줘.
 
 | 형식 | 도구 | 사용 시점 |
 |------|------|----------|
-| **주간 보고서 PDF** | Cowork 결과물 패널 → 다운로드 | 매주 금요일 캠페인·콘텐츠·CS 통합 보고 |
-| **SNS 콘텐츠 카드 3장** | Cowork 결과물 패널 (HTML 카드 시리즈) | 캠페인 런칭/중간/마감 공지 |
-| **회의록 요약 PT** | Cowork → Marp 슬라이드 | 회의 직후 결과 보고 |
+| **주간 보고서 PDF** | Artifact → 다운로드 | 매주 금요일 캠페인·콘텐츠·CS 통합 보고 |
+| **SNS 콘텐츠 카드 3장** | Artifact (HTML 카드 시리즈) | 캠페인 런칭/중간/마감 공지 |
+| **회의록 요약 PT** | Artifact → Marp 슬라이드 | 회의 직후 결과 보고 |
 | **1분 영상 시나리오** | 텍스트 시나리오 + 자막 | 짧은 캠페인 티저 |
 
-본인이 흥미 있는 형식 1개 메모. 시간 남으면 시도 (자세한 프롬프트는 `step4-deliverable-brief.md`).
+본인이 흥미 있는 형식 1개 메모. 시간 남으면 시도 (자세한 프롬프트는 `04-deliverable-brief.md`).
 
 ---
 
 ## 실습 5 — 나만의 대시보드 만들기 ⭐ (업무+생활 통합)
 
-### 5-1. 도구 선택
+> v5: Cowork 없이 **Chat Project + Artifact**로 완결합니다. 무료 플랜 전원 가능.
 
-| 옵션 | 가입 도구 | 진입 | 영속성 |
-|------|---------|------|--------|
-| **Primary** — Cowork 결과물 패널 (실습 4에서 이미 전환됨) | claude.ai | 우측 패널 즉시 렌더 | ❌ 새 세션 시 사라짐 |
-| **Primary+** — Cowork + **Live Artifacts ON** | Claude Pro 이상 | 동일 진입 | ✅ 새로고침 뒤에도 유지 |
-| **Bonus 1** — 로컬 `dashboard.html` + localStorage | (희망자) | 더블클릭 실행 | ✅ 브라우저 누적 |
-| Bonus 3 — Claude Code / Cursor / VS Code | (희망자) | 보조강사 1:1, localhost | ✅ 파일 직접 수정 |
-| (후속) Supabase MCP / Vercel | 본편 X | 후속 클래스 예고 | ✅ 클라우드 |
+### 5-1. Artifact로 6위젯 대시보드 띄우기
 
-### 5-2. 프롬프트 5 — 폴더 통째로 활용한 통합 대시보드
+**프롬프트 5-1**
 
-> 데이터·명세 모두 **정리된 폴더 안 1·2·3 디렉토리**가 받쳐줍니다. 본문은 "어느 파일을 어떻게 합쳐달라"만.
+> 데이터·명세는 [파일] 영역의 `05-dashboard-spec.md` + `02-campaign-analysis.md` 등이 받쳐줍니다. 잘림을 줄이려면 `step5-dashboard-starter-localStorage.html`을 [파일] 영역에 같이 올려두고 "이 시작점에 위젯/데이터를 더해줘"로 증분 진행하세요.
 
 ```text
-방금 정리한 폴더 전체를 활용해서
-3-결과물-명세/점검판-대시보드-스펙.md 명세대로
-"내 5월 점검판" 6 위젯 대시보드를 만들어
-Cowork 우측 결과물 패널에 띄워줘.
+[파일] 영역의 step5-dashboard-starter-localStorage.html을 시작점으로,
+05-dashboard-spec.md 명세대로 "내 5월 점검판" 대시보드를 Artifact로 띄워줘.
 
-데이터 매핑은 명세 그대로:
-- 위젯 1·2: 2-산출물/캠페인-5월-분석.md + 3-결과물-명세/결과물-4종-가이드.md
-- 위젯 3: 2-산출물/캠페인-5월-분석.md "핵심 KPI 3"
-- 위젯 4: 2-산출물/지출-요약.md "공과금"
-- 위젯 5: 1-원본데이터/분기-체크리스트.md "이번 주 첫 행동"
-- 위젯 6: 2-산출물/검색-결과-청약세금연차.md "다음 액션 (캘린더 옮기기)"
+본편 필수는 4위젯이면 충분:
+- 위젯 1 캠페인 진행 (02-campaign-analysis.md)
+- 위젯 3 KPI 트래커 (02-campaign-analysis.md "핵심 KPI 3")
+- 위젯 5 오늘의 루틴 (01-quarter-checklist.md "이번 주 첫 행동")
+- 위젯 6 통합 캘린더 (03-search-results.md "다음 액션")
+인터랙션: 투두 체크 토글, 변동 지출 입력 → 화면 갱신.
+(여유 되면 위젯 2 SNS·위젯 4 도넛까지 6위젯 = 보너스)
 ```
 
-### 5-2-b. 한 단계 더 — 로컬 파일로 매일 누적되는 진짜 대시보드
-
-위 인터랙션은 페이지 새로고침 시 초기 데이터로 돌아갑니다. Cowork이 폴더 안 파일을 직접 읽고 쓰는 기능을 활용해 **DB·서버 없이 로컬 파일에 영속**시킵니다.
+**잘림 복구 프롬프트** — 코드가 중간에 끊기면 당황 말고:
 
 ```text
-방금 만든 대시보드 인터랙션이 새로고침에 사라지지 않게,
-이 폴더 안에 4-app-data/ 를 새로 만들고
-state.json 에 모든 상태를 저장·복원하도록 수정해줘.
-
-저장 대상:
-- 투두 체크/추가한 행
-- 캘린더에 추가한 일정 (날짜·제목·메모)
-- 변동 지출 입력값
-- SNS 콘텐츠 상태 토글 결과
-
-페이지 로드 시 state.json에서 읽어 화면 복원,
-변경 시마다 같은 파일에 덮어쓰기.
-
-만약 state.json이 없으면 cowork-folder/2-산출물/ 안 파일들에서
-초기값을 추출해 첫 state.json을 생성해줘.
+코드가 중간에 끊겼어. 마지막으로 출력한 줄부터 이어서 나머지만 출력해줘.
 ```
 
-결과 — `cowork-folder/4-app-data/state.json` 파일이 생성되고, 대시보드의 모든 상태가 그 파일에 저장됩니다. 다음에 같은 폴더로 Cowork을 열면 어제 체크한 투두·추가한 일정·입력한 변동 지출 모두 그대로.
+### 5-2. 다운로드 → 바탕화면 → 매일 누적 (영속성)
 
-> **서버·계정·결제 없이도** 매일 누적 가능. 본인 PC 안에서만 작동하니 민감정보도 안전. 폴더를 다른 기기에 복사하면 그대로 옮겨감.
+> Artifact 화면 안에서는 sandbox 때문에 localStorage가 안 됩니다. **코드를 다운로드해 본인 PC에서 열면** sandbox 밖이라 localStorage가 정상 작동 — 매일 누적되는 진짜 사령탑이 됩니다.
 
-### 5-3. Scheduled로 매일·매주 자동 갱신 등록
+1. Artifact 우측 하단 **`</> 코드`** → **다운로드**(또는 코드 복사) — 무료 플랜도 동일하게 가능
+2. 파일명을 **`점검판.html`** 로, **바탕화면**에 저장 (매일 같은 자리에서 찾기 위한 의례)
+3. 그 파일을 **더블클릭** — 브라우저가 열리고, 끝. (인터넷·설치·계정 불필요)
+4. 투두 체크·변동 지출 입력 → **새로고침해도 그대로 누적** (localStorage)
+5. 다음에 더 손보고 싶으면? → 오늘 쓴 **같은 Chat Project를 다시 열어** "지난번 점검판에 위젯 하나 더" 라고 이어 말하면, 그 대화·자료·맥락이 Project에 남아 이어서 개선됩니다.
 
-이 단계가 실습 5의 핵심 — 대시보드만 만들고 끝이 아니라 **매일 자동으로 최신 상태가 되는 화면**으로 만듭니다.
+> **막혔을 때 안전망**: Artifact 코드가 자꾸 잘리거나 시간이 부족하면, `samples/step5-dashboard-starter-localStorage.html`을 그대로 다운로드 → 바탕화면 저장 → 더블클릭. 완성본이 이미 매일 누적 동작합니다. 거기서 본인 데이터만 바꾸면 끝.
 
-> **Scheduled = Cron job**: "매일 09:00·매주 금요일 18:00 같은 시간 규칙에 따라 작업을 자동 실행"하는 시계 같은 장치. Cowork의 Scheduled가 본인 Claude 계정에 작은 cron을 걸어두고 시간이 되면 그 프롬프트를 자동 실행해 줍니다.
+### 5-3. 완료 기준 (본편)
 
-#### 🚀 한 번에 6개 등록 (강사 시연 30초)
-
-폴더 안 **`scheduled-jobs.md`** 에 6개 작업이 시간·본문까지 정리돼 있습니다. Cowork 대화창에 한 줄만 던지면 Claude가 차례로 `/schedule` 6번을 실행해 좌측 Scheduled에 한 번에 등록해 줍니다.
-
-```text
-이 폴더의 scheduled-jobs.md 에 있는 6개 작업을 모두 Scheduled에 등록해줘.
-각 Job의 시간·본문 그대로, /schedule 슬래시 명령 6번으로 처리.
-등록 후 좌측 사이드바 Scheduled 메뉴에 6개가 보이는지 확인하고 결과 알려줘.
-```
-
-#### 개별 등록 (한 개씩 시도하고 싶을 때)
-
-각 Job의 정확한 프롬프트는 `cowork-folder/scheduled-jobs.md` 에 있습니다. 본인이 가장 유용한 1~2개부터 시작하세요. 직접 입력하려면 두 가지 길:
-
-- **🅐 UI 등록**: Cowork 좌측 사이드바 → `Scheduled` → `+ New task` → 시간·본문 입력
-- **🅑 슬래시 명령 (더 빠름)**: 같은 Cowork 대화창에 `/schedule daily 08:30 ...` 한 줄만 적으면 좌측 Scheduled에 자동 등록
-
-#### 김민지씨가 매일 자동으로 받는 것들 (6 패턴)
-
-다음 6개 작업을 모두 등록하면 대시보드가 매일 알아서 갱신됩니다. 한 번에 다 안 해도 되고, 본인이 가장 유용한 것 1~2개부터 시작하세요.
-
-##### 📰 1. 일 단위 뉴스 스크랩 (Daily 08:30)
-```text
-/schedule daily 08:30
-마케팅·디자인 분야 어제 핵심 뉴스 5건을 검색해서
-한 줄 요약 + 출처 URL을 함께 정리하고,
-4-app-data/news.json 에 날짜별로 누적 저장해줘.
-그리고 대시보드 위젯 2 "오늘의 뉴스" 영역을 갱신.
-```
-
-##### 📊 2. KPI 변동 자동 반영 (Daily 09:00)
-```text
-/schedule daily 09:00
-어제 발행 SNS의 클릭률·캠페인 CTR을 검색·집계해서
-state.json 의 KPI 트래커 값을 갱신하고,
-위젯 3 게이지를 즉시 반영해줘.
-```
-
-##### 📅 3. 청약·세금 D-day 알림 (Daily 09:00)
-```text
-/schedule daily 09:00
-03-search-results 기준 오늘 D-day 1건과
-마감 임박(7일 이내) 청약/세금/연차 1건을 찾아
-위젯 6 캘린더의 점과 라벨을 갱신하고,
-state.json 의 "오늘 챙길 일" 영역에 추가.
-```
-
-##### 📄 4. 주간 결과물 자동 생성 (Weekly Fri 18:00)
-```text
-/schedule weekly fri 18:00
-이번 주 KPI 변동치를 02-campaign-analysis 기준 대비 리뷰하고
-1페이지 PDF로 정리 + 다음 주 인포그래픽 초안 1장(04-deliverable-brief
-"1. 캠페인 인포그래픽" 명세 사용)을 만들어
-4-app-data/weekly/{YYYY-WW}/ 에 저장해줘.
-```
-
-##### 📸 5. 월말 스냅샷 + 헤더 갱신 (Monthly 마지막 평일 18:00)
-```text
-/schedule monthly last 18:00
-지난달 6 위젯 점검판을 PDF로 저장 (4-app-data/monthly/{YYYY-MM}/snapshot.pdf),
-다음 달 시작 헤더 부제를 갱신 ("내 {YYYY-MM} 점검판"),
-state.json 의 월간 카운터(SNS 누적·KPI 평균 등)를 리셋.
-```
-
-##### 🎯 6. 분기 회고 트리거 (Quarterly 1일 09:00)
-```text
-/schedule quarterly 1 09:00
-지난 분기 캠페인 3개를 02-campaign-analysis 누적 데이터로 회고하고
-다음 분기 체크리스트(생활+업무) 초안을 01-quarter-checklist 양식으로
-새로 생성해서 폴더에 덮어쓰기 + 위젯 5 루틴 갱신.
-```
-
-> Scheduled 작업은 **컴퓨터가 켜져 있을 때**만 실행됩니다(절전 모드 방지 토글). Pro 이상에서 권장.
-
-#### 다른 직군 활용 예시
-
-- **영업**: Daily 08:30 — 경쟁사 가격·공급망 공지 스크랩 → 영업 자료 위젯
-- **개발**: Daily 09:00 — 어제 PR 머지·이슈 갱신 → 진행판 위젯 / Weekly Fri — 다음 주 릴리즈 노트 초안
-- **기획**: Daily 09:00 — 사용자 인터뷰 새 답변 정리 / Weekly Mon — 이번 주 실험 가설 정리
-- **HR**: Daily 09:00 — 어제 입사·이직 통계 / Monthly 1일 — 채용 깔때기 변동 PDF
-- **전업주부**: Daily 07:00 — 자녀 학교 알림장·학습 진도 / Weekly Sun — 이번 주 가계부 요약
-
-```text
-/schedule daily 09:00
-정리한 폴더 자료를 참고해서, 오늘 챙길 일 3가지를 요약해줘.
-1) 오늘 D-day 캠페인 1건 (2-산출물/캠페인-5월-분석.md 기준)
-2) 오늘 마감 임박 청약/세금/연차 1건 (2-산출물/검색-결과-청약세금연차.md 기준)
-3) 어제 SNS 발행 상태 갱신 (위젯 2 동기화)
-```
-
-```text
-/schedule weekly fri 18:00
-이번 주 캠페인 KPI 변동치를 2-산출물/캠페인-5월-분석.md 기준 대비 정리하고,
-다음 주 인포그래픽 카드 1장 초안(3-결과물-명세/결과물-4종-가이드.md "1. 캠페인 인포그래픽" 명세)을
-결과물 패널에 띄워줘.
-```
-
-```text
-/schedule monthly 1 09:00
-지난달 점검판 6 위젯 스냅샷을 PDF로 저장하고,
-이번 달 시작 헤더 부제를 갱신해줘 ("내 {YYYY-MM} 점검판").
-```
-
-> Scheduled 작업은 **컴퓨터가 켜져 있을 때**만 실행됩니다(절전 모드 방지 토글). Pro 이상에서 권장.
-
-### 5-4. 시작점 (자료실 starter 2종)
-
-- **기본**: `samples/step5-dashboard-starter.html` — 6 위젯 최소 골격
-- **Bonus 1 (localStorage)**: `samples/step5-dashboard-starter-localStorage.html` — KPI 입력·캠페인 상태·SNS 상태·투두를 브라우저에 누적 저장 + 초기화 버튼
-
-### 5-3. 시작점 (자료실 starter 2종)
-
-- **기본**: `samples/step5-dashboard-starter.html` — 6 위젯 최소 골격
-- **Bonus 2 (localStorage)**: `samples/step5-dashboard-starter-localStorage.html` — KPI 입력·캠페인 상태·SNS 상태·투두를 브라우저에 누적 저장 + 초기화 버튼
-
-### 5-4. 완료 기준 (현실적)
-
-- ☐ 화면에 대시보드 1페이지 표시 (위젯 6개 중 4개 이상 보이면 성공)
-- ☐ 투두 체크박스 1개 이상 클릭 → 시각 반응 동작
-- ☐ 캡처 1장 (다운로드 또는 화면 캡처)
-- ☐ (Bonus) KPI 진행 바·캠페인 D-day 자동 계산 동작
+- ☐ Artifact에 대시보드 1페이지 표시 (위젯 **4개** 이상이면 성공, 6개는 보너스)
+- ☐ 투두 체크박스 1개 이상 클릭 → 시각 반응
+- ☐ 코드 **다운로드 1회** → 바탕화면 `점검판.html` 저장 → 더블클릭 실행 확인
+- ☐ (보너스) 본인 PC에서 입력·체크가 새로고침 후에도 누적
 
 옆사람에게 30초 보여주기. 본인 직무 변주가 들어갔다면 어디가 바뀌었는지 1줄 공유.
+
+### 5-4. 더 깊게 (부록 — Pro $20+ / 후속 클래스)
+
+본편으로 충분하지만, "매일 자동으로 갱신"까지 원하면:
+
+- **Cowork + Live Artifacts** (Pro+): 다운로드 없이 Artifact 자체가 새로고침 뒤에도 데이터 유지
+- **Cowork Scheduled** (Pro+): `appendix-pro/scheduled-jobs.md`의 6작업 — 매일 09:00 뉴스·KPI·D-day 자동 갱신
+- **Claude Code / Cursor**, **Supabase MCP·Vercel**: "에이전틱 AI × 기초" / "바이브코딩 × 기초" 후속 클래스
+
+부록은 본편이 끝난 뒤 "더 해보고 싶은 분"을 위한 보너스 트랙입니다 — 본편은 무료 플랜으로 누구나 완주합니다.
 
 ---
 
@@ -586,63 +417,50 @@ AI 결과를 그대로 믿지 말고:
 
 ---
 
-## 영속성 옵션 — Cowork 무료는 "체험", Live Artifacts는 "누적"
+## 영속성 — 2층으로 나눠 무료로 완결
 
-> Cowork 결과물 패널의 무료 세션은 새 세션을 시작하면 데이터가 사라집니다 (sandbox CSP로 localStorage·외부 fetch 차단).
-> 매일 누적해서 쓰고 싶으면 **Pro 이상 + Live Artifacts ON**(가장 추천) 또는 아래 Bonus 1·2 / 후속 클래스로 가세요.
+영속성을 "하나"가 아니라 **두 층**으로 나누면 무료 플랜으로 끝까지 갑니다.
 
-| 옵션 | 영속성 | 학생 조건 | 본편 적합 |
-|------|--------|----------|----------|
-| Cowork 결과물 패널 (무료, Live Artifacts OFF) | ❌ 새 세션 시 사라짐 | — | 본편 진입 |
-| **Cowork + Live Artifacts ON** | ✅ 새로고침/다음날에도 유지 | Claude Pro/Max/Team/Enterprise | **본편 권장** |
-| **Bonus 1 — 로컬 dashboard.html + localStorage** | ✅ 브라우저 누적 | 코드 저장 + 더블클릭 실행 | 희망자 1:1 |
-| Bonus 2 — Claude Code / Cursor / VS Code (localhost) | ✅ 파일 직접 수정 | IDE 사용 경험 | 희망자 1:1 |
-| (후속) Supabase MCP Connector | ✅ 클라우드 DB | Claude 유료 + Supabase + MCP | **에이전틱 AI × 기초** |
-| (후속) Vercel + Supabase 풀스택 | ✅ 클라우드 + URL 공유 | 본인 노트북 + Git | **바이브코딩 × 기초** ⭐ |
+| 층 | 정의 | 보장처 | 무료 |
+|----|------|--------|------|
+| ① 개발 맥락 | 페르소나·자료·이전 대화 맥락이 남아 다음에 이어 개선 | Chat **Project 지침**(자동) + **[파일] 영역**(자동 참조) + 같은 Project 재방문 | ✅ |
+| ② 런타임 데이터 | 매일 입력·체크가 새로고침 후에도 누적 | Artifact 코드 **다운로드** → 바탕화면 `점검판.html` → 더블클릭(sandbox 밖이라 localStorage 작동) | ✅ |
 
-### Cowork + Live Artifacts 사용법 (Claude Pro 학생)
+> **핵심**: Artifact **화면 안에서는** sandbox 때문에 localStorage가 막힙니다. 하지만 **코드를 다운로드해 본인 PC에서 열면** sandbox 밖이라 정상 작동 — 이 한 끗으로 무료 플랜도 매일 누적되는 사령탑을 가집니다. (다운로드는 무료 포함 전 플랜 동일)
+>
+> **주의(정직 서술)**: "Artifact를 Project에 두면 다음 대화에서 자동으로 이어진다"는 **사실이 아닙니다.** Chat Project는 지침·[파일]만 자동 전파합니다. Artifact 산출물을 이어가려면 (a) 같은 대화를 계속 쓰거나 (b) 다운로드본을 [파일] 영역에 다시 올려야 합니다(반자동, 사용자 행동 필요).
 
-1. 실습 4에서 이미 Cowork 모드로 전환 완료 (위 "실습 4 진입 전" 참고)
-2. 결과물 생성 시 **"Live Artifact" 토글 ON** (우측 패널 상단)
-3. KPI 누적 / 매일 SNS 상태 갱신 같은 위젯 요청
-4. 같은 Project를 다음 날 다시 열어도 결과물 패널의 데이터 유지 (공유 미지원, 본인 워크스페이스 전용)
+### 부록 (Pro $20+ — 본편 아님)
 
-### Bonus 1 사용법 (희망자 — 자료실 starter 제공)
+| 옵션 | 영속성 | 조건 | 위치 |
+|------|--------|------|------|
+| Cowork + Live Artifacts ON | ✅ 다운로드 없이 새로고침 뒤에도 유지 | Pro/Max/Team/Enterprise | 부록·심화 |
+| Cowork Scheduled (매일 자동 갱신) | ✅ 매일 09:00 뉴스·KPI·D-day 자동 | Pro+ | `appendix-pro/scheduled-jobs.md` |
+| Supabase MCP / Vercel 풀스택 | ✅ 클라우드 DB·URL 공유 | 후속 클래스 | "에이전틱 AI × 기초" / "바이브코딩 × 기초" ⭐ |
 
-1. `samples/step5-dashboard-starter-localStorage.html` 다운로드 → 더블클릭 → KPI 입력·캠페인 상태·SNS 상태·투두 누적 동작 확인
-2. Cowork 결과물 패널로 본인 변주본을 만들고 싶으면 확장 프롬프트(아래) 사용
-3. 결과를 본인 PC `dashboard.html`로 저장 → 더블클릭 → 입력·체크가 누적
+부록은 본편이 끝난 뒤 "더 해보고 싶은 분"을 위한 보너스 트랙입니다. 본편은 무료 플랜으로 누구나 완주합니다.
 
-**확장 프롬프트** (Cowork이 만든 본인 대시보드 코드에 추가):
+### 참고 자료
 
-```text
-방금 만든 대시보드 코드에 localStorage 저장을 추가해줘.
-- KPI 실적 input → key별 localStorage.setItem
-- 캠페인 상태 / SNS 콘텐츠 상태 (PLAN/RUN/DRAFT/DONE/TODO) → 클릭 시 순환·저장
-- 투두 체크 상태 → 배열로 localStorage.setItem
-- 페이지 로드 시 → localStorage에서 복원
-- 데이터 초기화 버튼 1개 추가
-```
-
-### 영속성 참고 자료
-
-- [Claude Live Artifacts (eigent.ai)](https://www.eigent.ai/blog/claude-live-artifacts-guide)
-- [Use live artifacts in Claude Cowork (Anthropic Help)](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
-- [Build and share AI-powered apps with Claude — Simon Willison](https://simonwillison.net/2025/Jun/25/ai-powered-apps-with-claude/)
-- [Supabase official Claude connector](https://supabase.com/blog/supabase-is-now-an-official-claude-connector)
+- [What are artifacts and how do I use them (Anthropic Help)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them)
+- [Claude Live Artifacts (eigent.ai)](https://www.eigent.ai/blog/claude-live-artifacts-guide) — 부록
+- [Use live artifacts in Claude Cowork (Anthropic Help)](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork) — 부록
 
 ---
 
 ## 내 케이스로 갈아끼우기 (5분)
 
-본편을 김민지 마케터 시나리오로 끝까지 따라가신 뒤, **`your-template/` 폴더를 통째로 복사**해 본인 PC의 편한 위치(예: `~/Documents/my-cowork-folder/`)에 두고 다음 두 곳만 바꾸시면 본인 페르소나로 단계 4·5를 다시 돌릴 수 있습니다.
+본편을 김민지 마케터 시나리오로 끝까지 따라가신 뒤, **`your-template/`** 의 자료로 본인 페르소나로 단계 1~5를 다시 돌릴 수 있습니다. 폴더 연결이 아니라 **Chat Project에 올리는 방식**이라 무료 플랜 그대로:
 
-1. **`CLAUDE.md`** — 페르소나 첫 두 줄(직무·가구) + 자주 쓰는 결과물 1순위 1종
-2. **`02-work-data-template.md`** — 본인 영업/개발/기획/HR 데이터 1건 (가명·둥근 숫자)
+1. 새 Chat Project 생성 → **`00-project-지침.md`** 내용을 **지침 박스**에 붙여넣기 (페르소나 첫 두 줄만 본인으로)
+2. **`02-work-data-template.md`** 에 본인 영업/개발/기획/HR 데이터 1건 (가명·둥근 숫자) → **[파일] 영역** 업로드
+3. 나머지 `01·03·04·05` 양식은 김민지 그대로 두고 [파일] 영역에 올림 (한 줄씩만 변주해도 본인 톤)
+4. 실습 1~5를 본편과 같은 프롬프트로 진행
+5. 실습 5에서 Artifact 다운로드 → 바탕화면 `점검판.html` → 본인 사령탑 완성
 
-나머지 4 파일(체크리스트·검색·결과물 명세·대시보드 명세)은 김민지 양식 그대로 두고 한 줄씩만 변주해도 자연스럽게 본인 톤이 나옵니다. 자세한 가이드: `your-template/README.md`.
+자세한 가이드: `your-template/README.md`.
 
-| 직군 | CLAUDE.md 첫 두 줄 변주 예시 |
+| 직군 | `00-project-지침.md` 첫 두 줄 변주 예시 |
 |------|---------------------------|
 | **영업 5년차** | 1994년생 B2B 영업 / 분당 부부+1, 강아지 한 마리 |
 | **개발 1년차** | 1998년생 백엔드 / 강남 1인가구, 회사 도보 15분 |
